@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Next.js
+apps/web/.next/
+apps/web/out/
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+**/.env.local
+
+# Keep example env for teammates
+!**/.env.example
+
+# Build / logs
+dist/
+*.log
+.DS_Store
+.vercel
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
