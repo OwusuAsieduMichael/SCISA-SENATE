@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { mainNav } from "@/lib/nav";
+import { mainNavFlat } from "@/lib/nav";
 
 export function SiteFooter() {
   return (
@@ -37,7 +37,7 @@ export function SiteFooter() {
               Quick Links
             </p>
             <ul className="grid gap-2 sm:grid-cols-2">
-              {mainNav.map((item) => (
+              {mainNavFlat.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

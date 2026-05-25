@@ -218,6 +218,81 @@ export function sortCommitteeMembers(members: CommitteeMember[]): CommitteeMembe
   });
 }
 
+export function committeeSlug(committee: Committee): string {
+  return committee.id.replace(/^c-/, "");
+}
+
+export function getCommitteeBySlug(slug: string): Committee | undefined {
+  return GOVERNANCE_COMMITTEES.find((c) => committeeSlug(c) === slug);
+}
+
+/** Short label for nav (e.g. "Budget and Finance"). */
+export function committeeShortName(committee: Committee): string {
+  return committee.name.replace(/^Committee on /, "");
+}
+
+export const COMMITTEE_NAV_LINKS = GOVERNANCE_COMMITTEES.map((committee) => ({
+  label: committeeShortName(committee),
+  href: `/committees/${committeeSlug(committee)}`,
+}));
+
+export type CommitteeMemberGroup = {
+  title: string;
+  description?: string;
+  members: CommitteeMember[];
+};
+
+export function groupCommitteeMembers(
+  members: CommitteeMember[],
+): CommitteeMemberGroup[] {
+  const sorted = sortCommitteeMembers(members);
+  const leadership: CommitteeMember[] = [];
+  const caucus: CommitteeMember[] = [];
+  const ranking: CommitteeMember[] = [];
+  const general: CommitteeMember[] = [];
+
+  for (const member of sorted) {
+    if (member.role.includes("Caucus")) {
+      caucus.push(member);
+    } else if (member.role === "Ranking Member") {
+      ranking.push(member);
+    } else if (member.role === "Member") {
+      general.push(member);
+    } else {
+      leadership.push(member);
+    }
+  }
+
+  const groups: CommitteeMemberGroup[] = [];
+  if (leadership.length) {
+    groups.push({
+      title: "Officers of the Committee",
+      description: "Chairperson, vice chairperson, clerk, and related offices.",
+      members: leadership,
+    });
+  }
+  if (caucus.length) {
+    groups.push({
+      title: "Caucus Representatives",
+      description: "Heads of faculty and stakeholder caucuses on the committee.",
+      members: caucus,
+    });
+  }
+  if (ranking.length) {
+    groups.push({
+      title: "Ranking Members",
+      members: ranking,
+    });
+  }
+  if (general.length) {
+    groups.push({
+      title: "Members",
+      members: general,
+    });
+  }
+  return groups;
+}
+
 function slugifyName(name: string): string {
   return name
     .toLowerCase()
