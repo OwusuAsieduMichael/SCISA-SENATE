@@ -2,7 +2,11 @@ import {
   GOVERNANCE_COMMITTEES,
   GOVERNANCE_LEADERSHIP,
   GOVERNANCE_SENATORS,
+  getSenatePresidingOfficers,
+  getSenatorsExcludingOfficers,
 } from "@/lib/governance-data";
+
+export { getSenatePresidingOfficers, getSenatorsExcludingOfficers };
 
 export type BillStatus =
   | "Draft"
@@ -18,7 +22,8 @@ export const leadership = GOVERNANCE_LEADERSHIP.map(({ id: _id, ...rest }) => ({
 }));
 
 export const committees = GOVERNANCE_COMMITTEES;
-export const senators = GOVERNANCE_SENATORS;
+export const senators = getSenatorsExcludingOfficers();
+export const senateOfficers = getSenatePresidingOfficers();
 
 export const upcomingSittings = [
   {

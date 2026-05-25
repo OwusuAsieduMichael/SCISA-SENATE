@@ -338,3 +338,17 @@ export function buildSenatorsFromCommittees(committees: Committee[]): Senator[] 
 }
 
 export const GOVERNANCE_SENATORS = buildSenatorsFromCommittees(GOVERNANCE_COMMITTEES);
+
+const OFFICER_NAMES = new Set(
+  GOVERNANCE_LEADERSHIP.map((officer) => officer.name),
+);
+
+/** Presiding officers shown before the general senator roster. */
+export function getSenatePresidingOfficers(): Leadership[] {
+  return GOVERNANCE_LEADERSHIP;
+}
+
+/** Senators excluding the Speaker, Deputy Speaker, and Clerk. */
+export function getSenatorsExcludingOfficers(): Senator[] {
+  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name));
+}

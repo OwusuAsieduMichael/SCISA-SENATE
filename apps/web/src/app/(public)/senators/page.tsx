@@ -1,45 +1,62 @@
 import { ContentSection } from "@/components/shared/content-section";
 import { PageHeader } from "@/components/shared/page-header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { senators } from "@/lib/mock-data";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { OfficerCard } from "@/components/senate/officer-card";
+import { SenatorCard } from "@/components/senate/senator-card";
+import {
+  getSenatePresidingOfficers,
+  getSenatorsExcludingOfficers,
+} from "@/lib/governance-data";
 
 export const metadata = { title: "Senators" };
 
 export default function SenatorsPage() {
+  const officers = getSenatePresidingOfficers();
+  const senators = getSenatorsExcludingOfficers();
+  const speaker = officers.find((o) => o.role.includes("Speaker of"));
+  const deputy = officers.find((o) => o.role === "Deputy Speaker");
+  const clerk = officers.find((o) => o.role.includes("Clerk"));
+  const otherOfficers = officers.filter(
+    (o) => o !== speaker && o !== deputy && o !== clerk,
+  );
+
   return (
     <>
       <PageHeader
         title="Meet the Senators"
-        description="Elected representatives of science students — portfolios, committees, and terms of office."
+        description="The presiding officers of the Senate and elected representatives of science students — portfolios, committees, and terms of office."
       />
       <ContentSection>
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {senators.map((senator) => (
-            <li key={senator.id}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="mb-3 flex size-16 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground ring-4 ring-[var(--institutional-gold)]/30">
-                    {senator.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")
-                      .slice(0, 2)}
-                  </div>
-                  <CardTitle className="text-lg">{senator.name}</CardTitle>
-                  <p className="text-sm font-medium text-destructive">{senator.portfolio}</p>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-muted-foreground">
-                  {senator.department ? <p>{senator.department}</p> : null}
-                  <p>Term: {senator.term}</p>
-                  <p>
-                    <span className="font-medium text-foreground">Committees: </span>
-                    {senator.committees.join(" · ")}
-                  </p>
-                </CardContent>
-              </Card>
-            </li>
-          ))}
-        </ul>
+        <div className="space-y-14">
+        <section>
+          <SectionHeading
+            title="Officers of the Senate"
+            description="The Speaker, Deputy Speaker, and Clerk preside over sittings and steward the records of the House."
+          />
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {speaker ? <OfficerCard officer={speaker} highlight /> : null}
+            {deputy ? <OfficerCard officer={deputy} /> : null}
+            {clerk ? <OfficerCard officer={clerk} /> : null}
+            {otherOfficers.map((officer) => (
+              <OfficerCard key={officer.id} officer={officer} />
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <SectionHeading
+            title="Members of the Senate"
+            description={`Standing senators for the 2025–2026 term (${senators.length} members).`}
+          />
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {senators.map((senator) => (
+              <li key={senator.id}>
+                <SenatorCard senator={senator} />
+              </li>
+            ))}
+          </ul>
+        </section>
+        </div>
       </ContentSection>
     </>
   );

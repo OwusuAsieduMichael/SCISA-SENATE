@@ -1,18 +1,16 @@
 import { Users } from "lucide-react";
 
+import { PersonAvatar } from "@/components/shared/person-avatar";
 import type { Committee, CommitteeMember } from "@/lib/types";
 import {
   committeeShortName,
   groupCommitteeMembers,
 } from "@/lib/governance-data";
+import { isCommitteeLeadershipRole } from "@/lib/person-display";
 import { cn } from "@/lib/utils";
 
 function RoleBadge({ role }: { role: string }) {
-  const isLead =
-    role.includes("Chairperson") ||
-    role.includes("Clerk") ||
-    role.startsWith("Speaker") ||
-    role.startsWith("Deputy Speaker");
+  const isLead = isCommitteeLeadershipRole(role);
   return (
     <span
       className={cn(
@@ -27,12 +25,64 @@ function RoleBadge({ role }: { role: string }) {
   );
 }
 
-function MemberRow({ member }: { member: CommitteeMember }) {
+function MemberRow({ member, index }: { member: CommitteeMember; index: number }) {
   return (
-    <li className="flex flex-col gap-2 border-b border-border px-5 py-4 last:border-0 sm:flex-row sm:items-center sm:justify-between">
-      <span className="text-sm font-medium text-foreground">{member.name}</span>
-      <RoleBadge role={member.role} />
+    <li className="flex gap-4 border-b border-border px-5 py-4 last:border-0">
+      <span className="mt-0.5 w-6 shrink-0 text-center text-xs font-medium tabular-nums text-muted-foreground">
+        {index}
+      </span>
+      <PersonAvatar name={member.name} size="sm" variant="default" />
+      <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <span className="text-sm font-medium leading-snug text-foreground">
+          {member.name}
+        </span>
+        <RoleBadge role={member.role} />
+      </div>
     </li>
+  );
+}
+
+type OfficerSlotProps = {
+  title: string;
+  member?: CommitteeMember;
+  accent?: boolean;
+};
+
+function OfficerSlot({ title, member, accent = false }: OfficerSlotProps) {
+  return (
+    <div
+      className={cn(
+        "flex flex-col items-center rounded-2xl border border-border bg-card px-5 py-6 text-center shadow-sm",
+        accent && "ring-1 ring-[var(--institutional-gold)]/35",
+      )}
+    >
+      {member ? (
+        <>
+          <PersonAvatar
+            name={member.name}
+            size="lg"
+            variant={accent ? "officer" : "default"}
+          />
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {title}
+          </p>
+          <p className="mt-2 text-sm font-semibold leading-snug text-foreground">
+            {member.name}
+          </p>
+          <p className="mt-1 text-xs text-destructive">{member.role}</p>
+        </>
+      ) : (
+        <>
+          <div className="flex size-14 items-center justify-center rounded-full border border-dashed border-border bg-muted/40">
+            <span className="text-sm text-muted-foreground">—</span>
+          </div>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {title}
+          </p>
+          <p className="mt-2 text-sm italic text-muted-foreground">To be assigned</p>
+        </>
+      )}
+    </div>
   );
 }
 
@@ -52,69 +102,74 @@ export function CommitteeLeadershipCard({ committee }: { committee: Committee })
     (m) => m.role === "Clerk" || m.role === "Clerk to the Committee",
   );
 
+  const visible = [
+    { title: "Chairperson", member: chair, accent: true },
+    { title: "Vice Chairperson", member: vice, accent: false },
+    { title: "Clerk", member: clerk, accent: false },
+  ];
+
   return (
     <div className="grid gap-4 sm:grid-cols-3">
-      {chair ? (
-        <div className="rounded-xl border border-border bg-card p-5 shadow-sm ring-1 ring-[var(--institutional-gold)]/20">
-          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--institutional-gold)]">
-            Chairperson
-          </p>
-          <p className="mt-2 font-semibold text-foreground">{chair.name}</p>
-        </div>
-      ) : null}
-      {vice ? (
-        <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Vice Chairperson
-          </p>
-          <p className="mt-2 font-semibold text-foreground">{vice.name}</p>
-        </div>
-      ) : null}
-      {clerk ? (
-        <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Clerk
-          </p>
-          <p className="mt-2 font-semibold text-foreground">{clerk.name}</p>
-        </div>
-      ) : null}
+      {visible.map((slot) => (
+        <OfficerSlot
+          key={slot.title}
+          title={slot.title}
+          member={slot.member}
+          accent={slot.accent}
+        />
+      ))}
     </div>
   );
+}
+
+function membersExcludingLeadership(members: CommitteeMember[]) {
+  return members.filter((m) => !isCommitteeLeadershipRole(m.role));
 }
 
 export function CommitteeRoster({
   committee,
   showMandate = true,
 }: CommitteeRosterProps) {
-  const groups = groupCommitteeMembers(committee.members);
+  const rosterMembers = membersExcludingLeadership(committee.members);
+  const groups = groupCommitteeMembers(rosterMembers);
+  let rowIndex = 0;
 
   return (
     <div className="space-y-10">
       {showMandate ? (
-        <div className="rounded-xl border border-border bg-muted/40 px-6 py-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Mandate
+        <div className="rounded-2xl border border-border bg-gradient-to-br from-muted/50 to-muted/20 px-6 py-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
+            Mandate of the Committee
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">
+          <p className="mt-3 text-sm leading-relaxed text-foreground">
             {committee.mandate}
           </p>
         </div>
       ) : null}
 
-      <CommitteeLeadershipCard committee={committee} />
+      <div>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Committee officers
+        </h2>
+        <div className="mt-4">
+          <CommitteeLeadershipCard committee={committee} />
+        </div>
+      </div>
 
-      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <Users className="size-4" />
+      <div className="flex flex-wrap items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+        <Users className="size-4 shrink-0 text-primary" />
         <span>
-          {committee.members.length} members · {committeeShortName(committee)} ·
-          2025–2026 term
+          <span className="font-medium text-foreground">
+            {committee.members.length}
+          </span>{" "}
+          members · {committeeShortName(committee)} · Session 2025–2026
         </span>
       </div>
 
       <div className="space-y-8">
         {groups.map((group) => (
           <section key={group.title}>
-            <div className="mb-3 border-l-4 border-primary pl-4">
+            <div className="mb-3 border-l-4 border-[var(--institutional-gold)] pl-4">
               <h2 className="text-base font-semibold text-foreground">
                 {group.title}
               </h2>
@@ -124,10 +179,17 @@ export function CommitteeRoster({
                 </p>
               ) : null}
             </div>
-            <ul className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-              {group.members.map((member) => (
-                <MemberRow key={`${member.name}-${member.role}`} member={member} />
-              ))}
+            <ul className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+              {group.members.map((member) => {
+                rowIndex += 1;
+                return (
+                  <MemberRow
+                    key={`${member.name}-${member.role}`}
+                    member={member}
+                    index={rowIndex}
+                  />
+                );
+              })}
             </ul>
           </section>
         ))}

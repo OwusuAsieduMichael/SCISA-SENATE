@@ -1,18 +1,22 @@
 import Link from "next/link";
-import { Bell, Gavel, Users } from "lucide-react";
+import { Bell, Gavel } from "lucide-react";
 
 import { HeroSection } from "@/components/home/hero-section";
+import { OfficerCard } from "@/components/senate/officer-card";
 import { ContentSection } from "@/components/shared/content-section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { StatusBadge } from "@/components/shared/status-badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { getSenatePresidingOfficers } from "@/lib/governance-data";
 import {
   announcements,
   featuredBills,
-  leadership,
 } from "@/lib/mock-data";
 
 export default function HomePage() {
+  const officers = getSenatePresidingOfficers();
+  const speaker = officers.find((o) => o.role.includes("Speaker of"));
+
   return (
     <>
       <HeroSection />
@@ -22,25 +26,13 @@ export default function HomePage() {
           title="Leadership of the Senate"
           description="The presiding officers and clerk steward legislative proceedings and institutional records."
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {leadership.map((leader) => (
-            <Card key={leader.role} className="overflow-hidden">
-              <div className="h-1.5 bg-[var(--institutional-gold)]" />
-              <CardHeader>
-                <div className="flex size-14 items-center justify-center rounded-full bg-primary/5 ring-2 ring-primary/10">
-                  <Users className="size-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">{leader.name}</CardTitle>
-                <p className="text-sm font-medium text-destructive">{leader.role}</p>
-              </CardHeader>
-              <CardContent>
-                {leader.department ? (
-                  <p className="text-sm text-muted-foreground">{leader.department}</p>
-                ) : (
-                  <p className="text-sm text-muted-foreground">SCISA Senate</p>
-                )}
-              </CardContent>
-            </Card>
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          {officers.map((officer) => (
+            <OfficerCard
+              key={officer.id}
+              officer={officer}
+              highlight={officer.id === speaker?.id}
+            />
           ))}
         </div>
       </ContentSection>

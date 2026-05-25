@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Users } from "lucide-react";
 
+import { PersonAvatar } from "@/components/shared/person-avatar";
 import { ContentSection } from "@/components/shared/content-section";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,8 +23,9 @@ export default function CommitteesPage() {
             return (
               <li key={committee.id}>
                 <Link href={href} className="group block h-full">
-                  <Card className="h-full transition-shadow hover:shadow-md">
-                    <CardHeader className="space-y-3">
+                  <Card className="h-full overflow-hidden transition-shadow hover:shadow-md">
+                    <div className="h-1 bg-gradient-to-r from-primary via-[var(--institutional-gold)]/80 to-primary" />
+                    <CardHeader className="space-y-4">
                       <div className="flex items-start justify-between gap-3">
                         <CardTitle className="text-lg leading-snug transition-colors group-hover:text-primary">
                           {committee.name}
@@ -34,11 +36,17 @@ export default function CommitteesPage() {
                         {committee.mandate}
                       </p>
                     </CardHeader>
-                    <CardContent className="flex items-center justify-between gap-4 border-t border-border pt-4">
-                      <p className="text-sm font-medium text-destructive">
-                        Chair: {committee.chair}
-                      </p>
-                      <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                    <CardContent className="flex items-center gap-4 border-t border-border pt-4">
+                      <PersonAvatar name={committee.chair} size="sm" variant="default" />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          Chairperson
+                        </p>
+                        <p className="truncate text-sm font-medium text-foreground">
+                          {committee.chair}
+                        </p>
+                      </div>
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
                         <Users className="size-3.5" />
                         {committee.members.length}
                       </span>
