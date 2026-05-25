@@ -1,26 +1,12 @@
+import {
+  GOVERNANCE_COMMITTEES,
+  GOVERNANCE_LEADERSHIP,
+  GOVERNANCE_SENATORS,
+} from "@/lib/governance-data";
 import type { AppData } from "@/lib/types";
 
 export const SEED_DATA: AppData = {
-  leadership: [
-    {
-      id: "l1",
-      name: "Rt. Hon. Speaker",
-      role: "Speaker of the Senate",
-      department: "Computer Science",
-    },
-    {
-      id: "l2",
-      name: "Deputy Speaker",
-      role: "Deputy Speaker",
-      department: "Biochemistry",
-    },
-    {
-      id: "l3",
-      name: "Clerk of Senate",
-      role: "Clerk",
-      department: "Mathematics",
-    },
-  ],
+  leadership: GOVERNANCE_LEADERSHIP,
   sittings: [
     {
       id: "sit1",
@@ -62,7 +48,7 @@ export const SEED_DATA: AppData = {
       id: "bill-2026-04",
       title: "Student Welfare Support Amendment Bill",
       status: "Debate",
-      sponsor: "Welfare Committee",
+      sponsor: "Committee on Welfare and Health",
       updatedAt: "2026-05-12",
       summary: "Amends welfare disbursement guidelines for science students.",
     },
@@ -70,69 +56,19 @@ export const SEED_DATA: AppData = {
       id: "bill-2026-03",
       title: "Senate Transparency & Records Act",
       status: "Review",
-      sponsor: "Constitutional Committee",
+      sponsor: "Committee on Constitution, Legal, and Senate Affairs",
       updatedAt: "2026-05-05",
     },
     {
       id: "bill-2026-01",
       title: "Academic Calendar Consultation Motion",
       status: "Passed",
-      sponsor: "Academic Committee",
+      sponsor: "Committee on Academics",
       updatedAt: "2026-04-18",
     },
   ],
-  senators: [
-    {
-      id: "s1",
-      name: "Sen. Kwame Asante",
-      department: "Computer Science",
-      portfolio: "Finance Chair",
-      term: "2025–2026",
-      committees: ["Finance", "Academic"],
-    },
-    {
-      id: "s2",
-      name: "Sen. Ama Osei",
-      department: "Biochemistry",
-      portfolio: "Welfare Lead",
-      term: "2025–2026",
-      committees: ["Welfare"],
-    },
-    {
-      id: "s3",
-      name: "Sen. Kofi Mensah",
-      department: "Physics",
-      portfolio: "Constitutional Affairs",
-      term: "2025–2026",
-      committees: ["Constitutional", "Academic"],
-    },
-  ],
-  committees: [
-    {
-      id: "c1",
-      name: "Finance Committee",
-      chair: "Sen. Kwame Asante",
-      mandate: "Oversight of association finances and budget approvals.",
-    },
-    {
-      id: "c2",
-      name: "Welfare Committee",
-      chair: "Sen. Ama Osei",
-      mandate: "Student welfare, accommodation, and support services.",
-    },
-    {
-      id: "c3",
-      name: "Academic Committee",
-      chair: "Sen. Kofi Mensah",
-      mandate: "Academic policy, curriculum concerns, and faculty liaison.",
-    },
-    {
-      id: "c4",
-      name: "Constitutional Committee",
-      chair: "Sen. Kofi Mensah",
-      mandate: "Constitution, standing orders, and governance frameworks.",
-    },
-  ],
+  senators: GOVERNANCE_SENATORS,
+  committees: GOVERNANCE_COMMITTEES,
   sessions: [
     {
       id: "sess1",

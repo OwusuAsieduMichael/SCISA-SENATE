@@ -61,11 +61,17 @@ export type NewsItem = {
   excerpt?: string;
 };
 
+export type CommitteeMember = {
+  name: string;
+  role: string;
+};
+
 export type Committee = {
   id: string;
   name: string;
   chair: string;
   mandate: string;
+  members: CommitteeMember[];
 };
 
 export type Sitting = {

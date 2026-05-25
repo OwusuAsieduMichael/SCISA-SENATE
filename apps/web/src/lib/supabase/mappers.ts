@@ -6,6 +6,7 @@ import type {
   Bill,
   BillStatus,
   Committee,
+  CommitteeMember,
   Leadership,
   NewsItem,
   Petition,
@@ -112,14 +113,27 @@ export function rowsToAppData(payload: {
         excerpt: r.excerpt ?? undefined,
       }),
     ),
-    committees: payload.committees.map(
-      (r): Committee => ({
+    committees: payload.committees.map((r): Committee => {
+      const raw = r.members;
+      const members: CommitteeMember[] = Array.isArray(raw)
+        ? raw.filter(
+            (m): m is CommitteeMember =>
+              typeof m === "object" &&
+              m !== null &&
+              "name" in m &&
+              "role" in m &&
+              typeof (m as CommitteeMember).name === "string" &&
+              typeof (m as CommitteeMember).role === "string",
+          )
+        : [];
+      return {
         id: r.id,
         name: r.name,
         chair: r.chair,
         mandate: r.mandate,
-      }),
-    ),
+        members,
+      };
+    }),
     sittings: payload.sittings.map(
       (r): Sitting => ({
         id: r.id,

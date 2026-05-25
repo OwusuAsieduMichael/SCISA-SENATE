@@ -138,12 +138,14 @@ export type Database = {
           name: string;
           chair: string;
           mandate: string;
+          members: { name: string; role: string }[] | null;
         };
         Insert: {
           id: string;
           name: string;
           chair: string;
           mandate?: string;
+          members?: { name: string; role: string }[] | null;
         };
         Update: Partial<Database["public"]["Tables"]["committees"]["Insert"]>;
       };

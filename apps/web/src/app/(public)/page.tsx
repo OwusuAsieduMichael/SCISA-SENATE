@@ -34,7 +34,11 @@ export default function HomePage() {
                 <p className="text-sm font-medium text-destructive">{leader.role}</p>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{leader.department}</p>
+                {leader.department ? (
+                  <p className="text-sm text-muted-foreground">{leader.department}</p>
+                ) : (
+                  <p className="text-sm text-muted-foreground">SCISA Senate</p>
+                )}
               </CardContent>
             </Card>
           ))}

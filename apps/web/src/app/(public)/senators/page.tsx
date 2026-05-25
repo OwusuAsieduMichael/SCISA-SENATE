@@ -29,9 +29,12 @@ export default function SenatorsPage() {
                   <p className="text-sm font-medium text-destructive">{senator.portfolio}</p>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-muted-foreground">
-                  <p>{senator.department}</p>
+                  {senator.department ? <p>{senator.department}</p> : null}
                   <p>Term: {senator.term}</p>
-                  <p>Committees: {senator.committees.join(", ")}</p>
+                  <p>
+                    <span className="font-medium text-foreground">Committees: </span>
+                    {senator.committees.join(" · ")}
+                  </p>
                 </CardContent>
               </Card>
             </li>

@@ -1,3 +1,9 @@
+import {
+  GOVERNANCE_COMMITTEES,
+  GOVERNANCE_LEADERSHIP,
+  GOVERNANCE_SENATORS,
+} from "@/lib/governance-data";
+
 export type BillStatus =
   | "Draft"
   | "Review"
@@ -6,26 +12,13 @@ export type BillStatus =
   | "Passed"
   | "Rejected";
 
-export const leadership = [
-  {
-    name: "Rt. Hon. Speaker",
-    role: "Speaker of the Senate",
-    department: "Computer Science",
-    image: null,
-  },
-  {
-    name: "Deputy Speaker",
-    role: "Deputy Speaker",
-    department: "Biochemistry",
-    image: null,
-  },
-  {
-    name: "Clerk of Senate",
-    role: "Clerk",
-    department: "Mathematics",
-    image: null,
-  },
-];
+export const leadership = GOVERNANCE_LEADERSHIP.map(({ id: _id, ...rest }) => ({
+  ...rest,
+  image: null as string | null,
+}));
+
+export const committees = GOVERNANCE_COMMITTEES;
+export const senators = GOVERNANCE_SENATORS;
 
 export const upcomingSittings = [
   {
@@ -68,72 +61,22 @@ export const featuredBills = [
     id: "bill-2026-04",
     title: "Student Welfare Support Amendment Bill",
     status: "Debate" as BillStatus,
-    sponsor: "Welfare Committee",
+    sponsor: "Committee on Welfare and Health",
     updatedAt: "2026-05-12",
   },
   {
     id: "bill-2026-03",
     title: "Senate Transparency & Records Act",
     status: "Review" as BillStatus,
-    sponsor: "Constitutional Committee",
+    sponsor: "Committee on Constitution, Legal, and Senate Affairs",
     updatedAt: "2026-05-05",
   },
   {
     id: "bill-2026-01",
     title: "Academic Calendar Consultation Motion",
     status: "Passed" as BillStatus,
-    sponsor: "Academic Committee",
+    sponsor: "Committee on Academics",
     updatedAt: "2026-04-18",
-  },
-];
-
-export const senators = [
-  {
-    id: "1",
-    name: "Sen. Kwame Asante",
-    department: "Computer Science",
-    portfolio: "Finance Chair",
-    term: "2025–2026",
-    committees: ["Finance", "Academic"],
-  },
-  {
-    id: "2",
-    name: "Sen. Ama Osei",
-    department: "Biochemistry",
-    portfolio: "Welfare Lead",
-    term: "2025–2026",
-    committees: ["Welfare"],
-  },
-  {
-    id: "3",
-    name: "Sen. Kofi Mensah",
-    department: "Physics",
-    portfolio: "Constitutional Affairs",
-    term: "2025–2026",
-    committees: ["Constitutional", "Academic"],
-  },
-];
-
-export const committees = [
-  {
-    name: "Finance Committee",
-    chair: "Sen. Kwame Asante",
-    mandate: "Oversight of association finances and budget approvals.",
-  },
-  {
-    name: "Welfare Committee",
-    chair: "Sen. Ama Osei",
-    mandate: "Student welfare, accommodation, and support services.",
-  },
-  {
-    name: "Academic Committee",
-    chair: "Sen. Kofi Mensah",
-    mandate: "Academic policy, curriculum concerns, and faculty liaison.",
-  },
-  {
-    name: "Constitutional Committee",
-    chair: "Sen. Kofi Mensah",
-    mandate: "Constitution, standing orders, and governance frameworks.",
   },
 ];
 

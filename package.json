@@ -1,0 +1,12 @@
+{
+  "name": "scisa-senate",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "build": "npm run build -w web",
+    "dev": "npm run dev -w web"
+  }
+}
