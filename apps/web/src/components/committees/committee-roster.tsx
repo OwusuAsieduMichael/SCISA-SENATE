@@ -73,6 +73,7 @@ function OfficerSlot({ title, member, accent = false }: OfficerSlotProps) {
             <OfficerPortrait
               name={member.name}
               imageSrc={photo}
+              subtitle={member.role}
               size="lg"
               variant={accent ? "officer" : "default"}
             />

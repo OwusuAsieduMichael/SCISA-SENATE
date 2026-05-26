@@ -1,15 +1,21 @@
+"use client";
+
 import Image from "next/image";
 
 import { PersonAvatar } from "@/components/shared/person-avatar";
+import { PortraitLightbox } from "@/components/shared/portrait-lightbox";
 import { cn } from "@/lib/utils";
 
 type OfficerPortraitProps = {
   name: string;
   imageSrc?: string;
+  subtitle?: string;
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   variant?: "default" | "officer" | "muted";
   className?: string;
   priority?: boolean;
+  /** Tap to open full-size view. Defaults to true for lg and larger. */
+  enlargeable?: boolean;
 };
 
 const pixelSizes = {
@@ -31,10 +37,12 @@ const frameClasses = {
 export function OfficerPortrait({
   name,
   imageSrc,
+  subtitle,
   size = "md",
   variant = "default",
   className,
   priority = false,
+  enlargeable,
 }: OfficerPortraitProps) {
   if (!imageSrc) {
     return (
@@ -48,8 +56,10 @@ export function OfficerPortrait({
   }
 
   const px = pixelSizes[size];
+  const canEnlarge =
+    enlargeable ?? (size === "lg" || size === "xl" || size === "2xl");
 
-  return (
+  const portrait = (
     <div
       className={cn(
         "relative shrink-0 overflow-hidden rounded-full",
@@ -69,5 +79,18 @@ export function OfficerPortrait({
         className="size-full object-cover object-top"
       />
     </div>
+  );
+
+  if (!canEnlarge) return portrait;
+
+  return (
+    <PortraitLightbox
+      name={name}
+      imageSrc={imageSrc}
+      subtitle={subtitle}
+      priority={priority}
+    >
+      {portrait}
+    </PortraitLightbox>
   );
 }

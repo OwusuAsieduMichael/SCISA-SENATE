@@ -19,6 +19,7 @@ export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
       <OfficerPortrait
         name={officer.name}
         imageSrc={officer.imageSrc}
+        subtitle={officer.role}
         size="xl"
         variant="officer"
       />

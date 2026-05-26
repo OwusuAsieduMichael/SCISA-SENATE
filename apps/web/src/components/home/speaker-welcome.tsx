@@ -12,6 +12,7 @@ export function SpeakerWelcome() {
           <OfficerPortrait
             name={speaker.name}
             imageSrc={speaker.imageSrc}
+            subtitle={speaker.role}
             size="2xl"
             variant="officer"
             priority
@@ -25,15 +26,29 @@ export function SpeakerWelcome() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--institutional-gold)]">
             Message from the Speaker
           </p>
-          <blockquote className="mt-4 space-y-4 border-l-4 border-primary/20 pl-6">
-            {SPEAKER_WELCOME.paragraphs.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 48)}
-                className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
+          <blockquote className="relative mt-4 border-l-4 border-primary/20 pl-6">
+            <span
+              className="pointer-events-none absolute -left-1 top-0 font-serif text-5xl leading-none text-primary/25 select-none sm:text-6xl"
+              aria-hidden
+            >
+              &ldquo;
+            </span>
+            <div className="space-y-4">
+              {SPEAKER_WELCOME.paragraphs.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 48)}
+                  className="text-base leading-relaxed text-muted-foreground sm:text-lg"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            <span
+              className="pointer-events-none mt-2 block text-right font-serif text-5xl leading-none text-primary/25 select-none sm:text-6xl"
+              aria-hidden
+            >
+              &rdquo;
+            </span>
           </blockquote>
           <footer className="mt-8 border-t border-border pt-6">
             <p className="font-semibold text-foreground">{SPEAKER_WELCOME.signatory}</p>
