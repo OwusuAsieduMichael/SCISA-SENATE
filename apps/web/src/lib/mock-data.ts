@@ -16,9 +16,9 @@ export type BillStatus =
   | "Passed"
   | "Rejected";
 
-export const leadership = GOVERNANCE_LEADERSHIP.map(({ id: _id, ...rest }) => ({
+export const leadership = GOVERNANCE_LEADERSHIP.map(({ id: _id, imageSrc, ...rest }) => ({
   ...rest,
-  image: null as string | null,
+  image: imageSrc ?? null,
 }));
 
 export const committees = GOVERNANCE_COMMITTEES;

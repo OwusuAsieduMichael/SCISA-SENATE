@@ -87,6 +87,8 @@ export type Leadership = {
   name: string;
   role: string;
   department: string;
+  /** Public path under /brand for officer portrait (e.g. /brand/speaker.jpeg). */
+  imageSrc?: string;
 };
 
 export type ConstitutionDoc = {

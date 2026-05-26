@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ChevronRight, Users } from "lucide-react";
 
+import { OfficerPortrait } from "@/components/shared/officer-portrait";
 import { PersonAvatar } from "@/components/shared/person-avatar";
+import { getOfficerPhotoByName } from "@/lib/governance-data";
 import { ContentSection } from "@/components/shared/content-section";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +22,7 @@ export default function CommitteesPage() {
         <ul className="grid gap-5 md:grid-cols-2">
           {GOVERNANCE_COMMITTEES.map((committee) => {
             const href = `/committees/${committeeSlug(committee)}`;
+            const chairPhoto = getOfficerPhotoByName(committee.chair);
             return (
               <li key={committee.id}>
                 <Link href={href} className="group block h-full">
@@ -37,7 +40,16 @@ export default function CommitteesPage() {
                       </p>
                     </CardHeader>
                     <CardContent className="flex items-center gap-4 border-t border-border pt-4">
-                      <PersonAvatar name={committee.chair} size="sm" variant="default" />
+                      {chairPhoto ? (
+                        <OfficerPortrait
+                          name={committee.chair}
+                          imageSrc={chairPhoto}
+                          size="sm"
+                          variant="default"
+                        />
+                      ) : (
+                        <PersonAvatar name={committee.chair} size="sm" variant="default" />
+                      )}
                       <div className="min-w-0 flex-1">
                         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                           Chairperson

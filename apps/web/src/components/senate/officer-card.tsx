@@ -1,4 +1,4 @@
-import { PersonAvatar } from "@/components/shared/person-avatar";
+import { OfficerPortrait } from "@/components/shared/officer-portrait";
 import type { Leadership } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,12 @@ export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
         highlight && "ring-1 ring-[var(--institutional-gold)]/30",
       )}
     >
-      <PersonAvatar name={officer.name} size="xl" variant="officer" />
+      <OfficerPortrait
+        name={officer.name}
+        imageSrc={officer.imageSrc}
+        size="xl"
+        variant="officer"
+      />
       <h3 className="mt-5 text-base font-semibold leading-snug text-foreground">
         {officer.name}
       </h3>

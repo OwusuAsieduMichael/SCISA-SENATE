@@ -18,6 +18,7 @@ import type {
   Vote,
 } from "@/lib/types";
 import type { ConstitutionDoc } from "@/lib/types";
+import { getOfficerPhotoByName } from "@/lib/governance-data";
 
 type BillRow = Database["public"]["Tables"]["bills"]["Row"];
 
@@ -143,14 +144,16 @@ export function rowsToAppData(payload: {
         venue: r.venue,
       }),
     ),
-    leadership: payload.leadership.map(
-      (r): Leadership => ({
+    leadership: payload.leadership.map((r): Leadership => {
+      const imageSrc = getOfficerPhotoByName(r.name);
+      return {
         id: r.id,
         name: r.name,
         role: r.role,
         department: r.department,
-      }),
-    ),
+        ...(imageSrc ? { imageSrc } : {}),
+      };
+    }),
     constitutionDocs: payload.constitutionDocs.map(
       (r): ConstitutionDoc => ({
         id: r.id,

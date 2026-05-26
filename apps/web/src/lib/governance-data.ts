@@ -1,23 +1,41 @@
 import type { Committee, CommitteeMember, Leadership, Senator } from "@/lib/types";
 
+export const OFFICER_PHOTO_PATHS = {
+  speaker: "/brand/speaker.jpeg",
+  deputySpeaker: "/brand/deputy-speaker.jpeg",
+  clerk: "/brand/clerk.jpeg",
+} as const;
+
+export const SPEAKER_WELCOME = {
+  paragraphs: [
+    "It is my honour to welcome you to the official digital home of the Senate of the Science Students' Association. As we serve the 2025–2026 academic year, this portal reflects our commitment to transparent governance, accountable representation, and the orderly conduct of the people's business.",
+    "Whether you are following legislation, exploring committee work, or engaging with your elected senators, I invite you to make use of these resources. Together we uphold the dignity of the Senate and advance the interests of every science student at KNUST.",
+  ],
+  signatory: "Rt. Hon. Henry Oduro Ntiamoah",
+  signatoryTitle: "Speaker of the Senate",
+} as const;
+
 export const GOVERNANCE_LEADERSHIP: Leadership[] = [
   {
     id: "l1",
     name: "Rt. Hon. Henry Oduro Ntiamoah",
     role: "Speaker of the Senate",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.speaker,
   },
   {
     id: "l2",
     name: "Hon. Nathaniel Bannor Amponsah",
     role: "Deputy Speaker",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.deputySpeaker,
   },
   {
     id: "l3",
     name: "Hon. Eunice Deladem Sosoo",
     role: "Clerk of the Senate",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.clerk,
   },
 ];
 
@@ -346,6 +364,15 @@ const OFFICER_NAMES = new Set(
 /** Presiding officers shown before the general senator roster. */
 export function getSenatePresidingOfficers(): Leadership[] {
   return GOVERNANCE_LEADERSHIP;
+}
+
+export function getSpeaker(): Leadership | undefined {
+  return GOVERNANCE_LEADERSHIP.find((o) => o.role.includes("Speaker of"));
+}
+
+/** Portrait path for a presiding officer when listed on committee rosters. */
+export function getOfficerPhotoByName(name: string): string | undefined {
+  return GOVERNANCE_LEADERSHIP.find((o) => o.name === name)?.imageSrc;
 }
 
 /** Senators excluding the Speaker, Deputy Speaker, and Clerk. */

@@ -1,6 +1,7 @@
 import { ContentSection } from "@/components/shared/content-section";
 import { PageHeader } from "@/components/shared/page-header";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { SpeakerWelcome } from "@/components/home/speaker-welcome";
 import { OfficerCard } from "@/components/senate/officer-card";
 import { SenatorCard } from "@/components/senate/senator-card";
 import {
@@ -26,6 +27,7 @@ export default function SenatorsPage() {
         title="Meet the Senators"
         description="The presiding officers of the Senate and elected representatives of science students — portfolios, committees, and terms of office."
       />
+      <SpeakerWelcome />
       <ContentSection>
         <div className="space-y-14">
         <section>

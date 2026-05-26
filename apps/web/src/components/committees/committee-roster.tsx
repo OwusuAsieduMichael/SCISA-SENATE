@@ -1,9 +1,11 @@
 import { Users } from "lucide-react";
 
+import { OfficerPortrait } from "@/components/shared/officer-portrait";
 import { PersonAvatar } from "@/components/shared/person-avatar";
 import type { Committee, CommitteeMember } from "@/lib/types";
 import {
   committeeShortName,
+  getOfficerPhotoByName,
   groupCommitteeMembers,
 } from "@/lib/governance-data";
 import { isCommitteeLeadershipRole } from "@/lib/person-display";
@@ -26,12 +28,18 @@ function RoleBadge({ role }: { role: string }) {
 }
 
 function MemberRow({ member, index }: { member: CommitteeMember; index: number }) {
+  const photo = getOfficerPhotoByName(member.name);
+
   return (
     <li className="flex gap-4 border-b border-border px-5 py-4 last:border-0">
       <span className="mt-0.5 w-6 shrink-0 text-center text-xs font-medium tabular-nums text-muted-foreground">
         {index}
       </span>
-      <PersonAvatar name={member.name} size="sm" variant="default" />
+      {photo ? (
+        <OfficerPortrait name={member.name} imageSrc={photo} size="sm" variant="default" />
+      ) : (
+        <PersonAvatar name={member.name} size="sm" variant="default" />
+      )}
       <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-sm font-medium leading-snug text-foreground">
           {member.name}
@@ -49,6 +57,8 @@ type OfficerSlotProps = {
 };
 
 function OfficerSlot({ title, member, accent = false }: OfficerSlotProps) {
+  const photo = member ? getOfficerPhotoByName(member.name) : undefined;
+
   return (
     <div
       className={cn(
@@ -58,11 +68,20 @@ function OfficerSlot({ title, member, accent = false }: OfficerSlotProps) {
     >
       {member ? (
         <>
-          <PersonAvatar
-            name={member.name}
-            size="lg"
-            variant={accent ? "officer" : "default"}
-          />
+          {photo ? (
+            <OfficerPortrait
+              name={member.name}
+              imageSrc={photo}
+              size="lg"
+              variant={accent ? "officer" : "default"}
+            />
+          ) : (
+            <PersonAvatar
+              name={member.name}
+              size="lg"
+              variant={accent ? "officer" : "default"}
+            />
+          )}
           <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             {title}
           </p>

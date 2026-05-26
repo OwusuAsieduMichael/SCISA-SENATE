@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Bell, Gavel } from "lucide-react";
 
 import { HeroSection } from "@/components/home/hero-section";
+import { SpeakerWelcome } from "@/components/home/speaker-welcome";
 import { OfficerCard } from "@/components/senate/officer-card";
 import { ContentSection } from "@/components/shared/content-section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -20,6 +21,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <SpeakerWelcome />
 
       <ContentSection>
         <SectionHeading
