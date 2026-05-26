@@ -48,7 +48,7 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/petitions"
             className={cn(
@@ -57,6 +57,19 @@ export function SiteHeader() {
             )}
           >
             Submit Petition
+          </Link>
+          <Link
+            href="/"
+            className="hidden shrink-0 sm:block"
+            aria-label="KNUST SCISA home"
+          >
+            <Image
+              src="/brand/scisa-logo.png"
+              alt="KNUST SCISA"
+              width={40}
+              height={40}
+              className="rounded-full bg-white p-0.5 ring-2 ring-white/20"
+            />
           </Link>
           <button
             type="button"
@@ -104,6 +117,21 @@ export function SiteHeader() {
             )}
           >
             Submit Petition
+          </Link>
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="mt-4 flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-3"
+            aria-label="KNUST SCISA home"
+          >
+            <Image
+              src="/brand/scisa-logo.png"
+              alt="KNUST SCISA"
+              width={36}
+              height={36}
+              className="rounded-full bg-white p-0.5"
+            />
+            <span className="text-sm font-medium text-white/90">KNUST SCISA</span>
           </Link>
         </nav>
       </div>

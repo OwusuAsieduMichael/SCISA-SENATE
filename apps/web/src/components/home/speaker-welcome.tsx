@@ -34,21 +34,26 @@ export function SpeakerWelcome() {
               &ldquo;
             </span>
             <div className="space-y-4">
-              {SPEAKER_WELCOME.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 48)}
-                  className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {SPEAKER_WELCOME.paragraphs.map((paragraph, index) => {
+                const isLast = index === SPEAKER_WELCOME.paragraphs.length - 1;
+                return (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="text-base leading-relaxed text-muted-foreground sm:text-lg"
+                  >
+                    {paragraph}
+                    {isLast ? (
+                      <span
+                        className="font-serif text-3xl leading-none text-primary/25 select-none sm:text-4xl"
+                        aria-hidden
+                      >
+                        &rdquo;
+                      </span>
+                    ) : null}
+                  </p>
+                );
+              })}
             </div>
-            <span
-              className="pointer-events-none mt-2 block text-right font-serif text-5xl leading-none text-primary/25 select-none sm:text-6xl"
-              aria-hidden
-            >
-              &rdquo;
-            </span>
           </blockquote>
           <footer className="mt-8 border-t border-border pt-6">
             <p className="font-semibold text-foreground">{SPEAKER_WELCOME.signatory}</p>
