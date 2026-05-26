@@ -28,7 +28,7 @@ export default function HomePage() {
           title="Leadership of the Senate"
           description="The presiding officers and clerk steward legislative proceedings and institutional records."
         />
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-3">
           {officers.map((officer) => (
             <OfficerCard
               key={officer.id}
@@ -109,25 +109,25 @@ export default function HomePage() {
       </ContentSection>
 
       <ContentSection>
-        <div className="rounded-2xl institutional-gradient px-8 py-10 text-center text-white sm:px-12">
-          <Gavel className="mx-auto size-10 text-[var(--institutional-gold)]" />
-          <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
+        <div className="rounded-xl institutional-gradient px-5 py-8 text-center text-white sm:rounded-2xl sm:px-8 sm:py-10 lg:px-12">
+          <Gavel className="mx-auto size-8 text-[var(--institutional-gold)] sm:size-10" />
+          <h2 className="mt-3 text-xl font-bold text-white sm:mt-4 sm:text-2xl lg:text-3xl">
             Your voice in governance
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-white/80">
+          <p className="mx-auto mt-2 max-w-xl text-sm text-white/80 sm:mt-3 sm:text-base">
             Submit petitions, review session archives, and access constitutional
             documents. Transparency is the foundation of student representation.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-8 sm:gap-4">
             <Link
               href="/petitions"
-              className="rounded-lg bg-destructive px-6 py-3 text-sm font-semibold text-white hover:bg-destructive/90"
+              className="rounded-lg bg-destructive px-4 py-2 text-xs font-semibold text-white hover:bg-destructive/90 sm:px-6 sm:py-3 sm:text-sm"
             >
               Submit a Petition
             </Link>
             <Link
               href="/constitution"
-              className="rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              className="rounded-lg border border-white/30 px-4 py-2 text-xs font-semibold text-white hover:bg-white/10 sm:px-6 sm:py-3 sm:text-sm"
             >
               Read the Constitution
             </Link>

@@ -11,7 +11,9 @@ export function ContentSection({
 }) {
   return (
     <section className={cn(alt ? "bg-muted/50" : "bg-background", className)}>
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">{children}</div>
+      <div className="mx-auto max-w-7xl px-3 py-10 sm:px-6 sm:py-14 lg:px-8">
+        {children}
+      </div>
     </section>
   );
 }

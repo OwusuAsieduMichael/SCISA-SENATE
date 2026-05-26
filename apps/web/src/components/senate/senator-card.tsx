@@ -13,7 +13,7 @@ export function SenatorCard({ senator }: SenatorCardProps) {
       <CardHeader className="space-y-4">
         <PersonAvatar name={senator.name} size="lg" variant="default" />
         <div>
-          <CardTitle className="text-lg leading-snug">{senator.name}</CardTitle>
+          <CardTitle className="text-base leading-snug sm:text-lg">{senator.name}</CardTitle>
           <p className="mt-1.5 text-sm font-medium text-destructive">
             {senator.portfolio}
           </p>

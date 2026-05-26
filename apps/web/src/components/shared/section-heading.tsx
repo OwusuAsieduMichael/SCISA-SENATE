@@ -10,10 +10,12 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-8", className)}>
-      <h2 className="text-2xl font-bold text-primary sm:text-3xl">{title}</h2>
+    <div className={cn("mb-6 sm:mb-8", className)}>
+      <h2 className="text-xl font-bold text-primary sm:text-2xl lg:text-3xl">{title}</h2>
       {description ? (
-        <p className="mt-2 max-w-2xl text-muted-foreground">{description}</p>
+        <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground sm:mt-2 sm:text-base">
+          {description}
+        </p>
       ) : null}
     </div>
   );

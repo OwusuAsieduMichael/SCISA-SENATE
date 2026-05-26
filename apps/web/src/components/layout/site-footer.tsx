@@ -7,8 +7,8 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="gold-accent-line w-full" />
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-3 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-3">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Image

@@ -12,7 +12,7 @@ export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
   return (
     <article
       className={cn(
-        "flex flex-col items-center rounded-2xl border border-border bg-card px-6 py-8 text-center shadow-sm",
+        "flex flex-col items-center rounded-xl border border-border bg-card px-4 py-6 text-center shadow-sm sm:rounded-2xl sm:px-6 sm:py-8",
         highlight && "ring-1 ring-[var(--institutional-gold)]/30",
       )}
     >

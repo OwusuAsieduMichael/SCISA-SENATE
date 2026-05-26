@@ -141,6 +141,13 @@
   h4 {
     @apply font-heading tracking-tight text-primary;
   }
+
+  /* Slightly tighter type scale on small phones */
+  @media (max-width: 639px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
 }
 
 @layer utilities {

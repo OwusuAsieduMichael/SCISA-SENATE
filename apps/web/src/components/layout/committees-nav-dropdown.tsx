@@ -45,25 +45,28 @@ export function CommitteesNavDropdown({
 
   if (variant === "mobile") {
     return (
-      <div className="space-y-1">
+      <div className="space-y-0.5">
+        <p className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/50">
+          {item.label}
+        </p>
         <Link
           href={item.href}
           onClick={onNavigate}
           className={cn(
-            "block rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10",
+            "block rounded-md px-3 py-2 text-sm font-medium text-white/90 hover:bg-white/10",
             isActive && "bg-white/10 text-white",
           )}
         >
           All Committees
         </Link>
-        <ul className="ml-3 space-y-0.5 border-l border-white/15 pl-3">
+        <ul className="ml-2 space-y-0.5 border-l border-white/15 pl-2">
           {item.children.map((child) => (
             <li key={child.href}>
               <Link
                 href={child.href}
                 onClick={onNavigate}
                 className={cn(
-                  "block rounded-md px-3 py-2 text-sm text-white/75 hover:bg-white/10 hover:text-white",
+                  "block rounded-md px-3 py-1.5 text-xs leading-snug text-white/75 hover:bg-white/10 hover:text-white sm:text-sm",
                   pathname === child.href && "bg-white/10 text-white",
                 )}
               >

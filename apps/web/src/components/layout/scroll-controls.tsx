@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const controlButtonClass =
-  "flex size-11 items-center justify-center rounded-full border border-white/20 bg-primary text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] focus-visible:ring-offset-2";
+  "flex size-9 items-center justify-center rounded-full border border-white/20 bg-primary text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] focus-visible:ring-offset-2 sm:size-11";
 
 export function ScrollControls() {
   const [showScrollDown, setShowScrollDown] = useState(false);
@@ -42,7 +42,7 @@ export function ScrollControls() {
 
   return (
     <div
-      className="fixed bottom-6 right-6 z-40 flex flex-col gap-2"
+      className="fixed bottom-4 right-4 z-40 flex flex-col gap-1.5 sm:bottom-6 sm:right-6 sm:gap-2"
       aria-label="Page scroll controls"
     >
       {showScrollUp ? (
