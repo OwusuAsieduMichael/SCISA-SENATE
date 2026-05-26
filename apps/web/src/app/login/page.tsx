@@ -46,7 +46,7 @@ export default function LoginPage() {
         <h1 className="mt-8 text-3xl font-bold">Senate Workspace</h1>
         <p className="mt-3 max-w-md text-white/80">
           {usingSupabase
-            ? "Deployed on Vercel with Supabase as the serverless database and auth — no Render or NestJS backend."
+            ? "Deployed on Vercel with Supabase as the serverless database and auth, with no Render or NestJS backend."
             : "Supabase not configured: using local demo mode. Add env vars from .env.example for production."}
         </p>
       </div>

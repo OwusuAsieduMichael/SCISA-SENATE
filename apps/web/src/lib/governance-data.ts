@@ -1,5 +1,8 @@
 import type { Committee, CommitteeMember, Leadership, Senator } from "@/lib/types";
 
+/** Academic session label for public copy (no en dash). */
+export const ACADEMIC_TERM = "2025 to 2026";
+
 export const OFFICER_PHOTO_PATHS = {
   speaker: "/brand/speaker.jpeg",
   deputySpeaker: "/brand/deputy-speaker.jpeg",
@@ -8,7 +11,7 @@ export const OFFICER_PHOTO_PATHS = {
 
 export const SPEAKER_WELCOME = {
   paragraphs: [
-    "It is my honour to welcome you to the official digital home of the Senate of the Science Students' Association. As we serve the 2025–2026 academic year, this portal reflects our commitment to transparent governance, accountable representation, and the orderly conduct of the people's business.",
+    `It is my honour to welcome you to the official digital home of the Senate of the Science Students' Association. As we serve the ${ACADEMIC_TERM} academic year, this portal reflects our commitment to transparent governance, accountable representation, and the orderly conduct of the people's business.`,
     "Whether you are following legislation, exploring committee work, or engaging with your elected senators, I invite you to make use of these resources. Together we uphold the dignity of the Senate and advance the interests of every science student at KNUST.",
   ],
   signatory: "Rt. Hon. Henry Oduro Ntiamoah",
@@ -325,12 +328,12 @@ function primaryPortfolio(memberships: { committee: string; role: string }[]): s
   const best = [...memberships].sort((a, b) => rank(a.role) - rank(b.role))[0];
   if (!best) return "Senator";
   if (best.role === "Member" || best.role === "Ranking Member") {
-    return `${best.role} — ${best.committee}`;
+    return `${best.role}, ${best.committee}`;
   }
-  return `${best.role} — ${best.committee}`;
+  return `${best.role}, ${best.committee}`;
 }
 
-/** Senators derived from standing committee rosters (2025–2026 term). */
+/** Senators derived from standing committee rosters (2025 to 2026 term). */
 export function buildSenatorsFromCommittees(committees: Committee[]): Senator[] {
   const byName = new Map<string, { committee: string; role: string }[]>();
 
@@ -350,7 +353,7 @@ export function buildSenatorsFromCommittees(committees: Committee[]): Senator[] 
       name,
       department: "",
       portfolio: primaryPortfolio(memberships),
-      term: "2025–2026",
+      term: ACADEMIC_TERM,
       committees: [...new Set(memberships.map((m) => m.committee))].sort(),
     }));
 }

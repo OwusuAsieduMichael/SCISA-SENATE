@@ -32,43 +32,43 @@ on conflict (id) do update set
   members = excluded.members;
 
 insert into public.senators (id, name, department, portfolio, term, committees) values
-  ('sen-abraham-appiah', 'Hon. Abraham Appiah', '', 'Vice Chairperson — Science and Innovation', '2025–2026', array['Science and Innovation']),
-  ('sen-appiah-derrick', 'Hon. Appiah Derrick', '', 'Vice Chairperson — Budget and Finance', '2025–2026', array['Budget and Finance']),
-  ('sen-benedicta-akosua-gyebuah-cobbina', 'Hon. Benedicta Akosua Gyebuah Cobbina', '', 'Clerk to the Committee — Constitution, Legal, and Senate Affairs', '2025–2026', array['Budget and Finance','Constitution, Legal, and Senate Affairs']),
-  ('sen-bernice-forson', 'Hon. Bernice Forson', '', 'Clerk to the Committee — Academics', '2025–2026', array['Academics']),
-  ('sen-bright-edem-amlalo', 'Hon. Bright Edem Amlalo', '', 'Member — Standing Orders', '2025–2026', array['Standing Orders']),
-  ('sen-cecilia-kponkpori-jinche', 'Hon. Cecilia Kponkpori Jinche', '', 'Chairperson — Welfare and Health', '2025–2026', array['Welfare and Health']),
-  ('sen-derrick-appiah', 'Hon. Derrick Appiah', '', 'Member — Standing Orders', '2025–2026', array['Standing Orders']),
-  ('sen-dorian-esi-fynn', 'Hon. Dorian Esi Fynn', '', 'Member — Appointment', '2025–2026', array['Appointment']),
-  ('sen-duvor-felix', 'Hon. Duvor Felix', '', 'Chairperson — Media and Publicity', '2025–2026', array['Media and Publicity']),
-  ('sen-elyon-winnore-ayariga', 'Hon. Elyon Winnore Ayariga', '', 'Member — Standing Orders', '2025–2026', array['Standing Orders']),
-  ('sen-emmanuella-owusu-addo', 'Hon. Emmanuella Owusu Addo', '', 'Deputy Clerk — Business', '2025–2026', array['Business','Standing Orders']),
-  ('sen-erica-bofah-boateng', 'Hon. Erica Bofah Boateng', '', 'Vice Chairperson — Welfare and Health', '2025–2026', array['Welfare and Health']),
-  ('sen-eunice-deladem-sosoo', 'Hon. Eunice Deladem Sosoo', '', 'Clerk — Business', '2025–2026', array['Business','Privileges','Standing Orders']),
-  ('sen-evans-kyeremanteng', 'Hon. Evans Kyeremanteng', '', 'Vice Chairperson — Academics', '2025–2026', array['Academics','Business','Standing Orders']),
-  ('sen-ezekiel-kocraft', 'Hon. Ezekiel Kocraft', '', 'Vice Chairperson — Constitution, Legal, and Senate Affairs', '2025–2026', array['Business','Constitution, Legal, and Senate Affairs']),
-  ('sen-genevieve-owusuwaa-karikari', 'Hon. Genevieve Owusuwaa Karikari', '', 'Clerk to the Committee — Appointment', '2025–2026', array['Appointment','Budget and Finance','Business']),
-  ('sen-herbert-boadu-ayisi', 'Hon. Herbert Boadu Ayisi', '', 'Chairperson — Academics', '2025–2026', array['Academics','Appointment','Welfare and Health']),
-  ('sen-isaac-nana-sam-mensah', 'Hon. Isaac Nana Sam Mensah', '', 'Ranking Member — Privileges', '2025–2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
-  ('sen-jeffery-oteng-afriyie', 'Hon. Jeffery Oteng Afriyie', '', 'Chairperson — Science and Innovation', '2025–2026', array['Constitution, Legal, and Senate Affairs','Media and Publicity','Science and Innovation']),
-  ('sen-jeffrey-owusu-acheaw', 'Hon. Jeffrey Owusu Acheaw', '', 'Chairperson — Appointment', '2025–2026', array['Appointment','Business','Privileges']),
-  ('sen-jevillin-gyedu-owusuaa', 'Hon. Jevillin Gyedu Owusuaa', '', 'Clerk to the Committee — Media and Publicity', '2025–2026', array['Media and Publicity','Welfare and Health']),
-  ('sen-kindly-osei-bediako', 'Hon. Kindly Osei Bediako', '', 'Clerk to the Committee — Welfare and Health', '2025–2026', array['Budget and Finance','Welfare and Health']),
-  ('sen-kofi-ewusi-acquah', 'Hon. Kofi Ewusi Acquah', '', 'Member — Welfare and Health', '2025–2026', array['Media and Publicity','Welfare and Health']),
-  ('sen-michael-owusu-asiedu', 'Hon. Michael Owusu Asiedu', '', 'Clerk to the Committee — Science and Innovation', '2025–2026', array['Science and Innovation']),
-  ('sen-nana-kwame-appiah-owusu', 'Hon. Nana Kwame Appiah Owusu', '', 'Chairperson — Budget and Finance', '2025–2026', array['Budget and Finance','Media and Publicity']),
-  ('sen-nathaniel-bannor-amponsah', 'Hon. Nathaniel Bannor Amponsah', '', 'Chairperson — Privileges', '2025–2026', array['Business','Constitution, Legal, and Senate Affairs','Privileges','Standing Orders']),
-  ('sen-ohene-blessing-yeboah', 'Hon. Ohene Blessing Yeboah', '', 'Ranking Member — Constitution, Legal, and Senate Affairs', '2025–2026', array['Constitution, Legal, and Senate Affairs','Science and Innovation']),
-  ('sen-oppong-palmer-buckle-charles', 'Hon. Oppong Palmer-Buckle Charles', '', 'Faculty of Biosciences Caucus Head — Business', '2025–2026', array['Business']),
-  ('sen-palmer-buckle-charles', 'Hon. Palmer-Buckle Charles', '', 'Vice Chairperson — Appointment', '2025–2026', array['Appointment','Standing Orders']),
-  ('sen-patience-amevor-mensah', 'Hon. Patience Amevor Mensah', '', 'Member — Privileges', '2025–2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
-  ('sen-priscilla-esimah-mbeah', 'Hon. Priscilla Esimah Mbeah', '', 'Member — Media and Publicity', '2025–2026', array['Media and Publicity','Science and Innovation']),
-  ('sen-reginald-nyarko', 'Hon. Reginald Nyarko', '', 'Member — Science and Innovation', '2025–2026', array['Science and Innovation']),
-  ('sen-sam-jerry-joshua', 'Hon. Sam Jerry Joshua', '', 'Member — Science and Innovation', '2025–2026', array['Science and Innovation']),
-  ('sen-sawudatu-ibrahim', 'Hon. Sawudatu Ibrahim', '', 'Clerk to the Committee — Budget and Finance', '2025–2026', array['Budget and Finance','Welfare and Health']),
-  ('sen-simeona-abena-serwaa-asibey', 'Hon. Simeona Abena Serwaa Asibey', '', 'Member — Welfare and Health', '2025–2026', array['Academics','Welfare and Health']),
-  ('sen-woli-richard-kwabena', 'Hon. Woli Richard Kwabena', '', 'Member — Media and Publicity', '2025–2026', array['Academics','Media and Publicity']),
-  ('sen-henry-oduro-ntiamoah', 'Rt. Hon. Henry Oduro Ntiamoah', '', 'Speaker (Chairperson) — Business', '2025–2026', array['Business','Standing Orders'])
+  ('sen-abraham-appiah', 'Hon. Abraham Appiah', '', 'Vice Chairperson, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-appiah-derrick', 'Hon. Appiah Derrick', '', 'Vice Chairperson, Budget and Finance', '2025 to 2026', array['Budget and Finance']),
+  ('sen-benedicta-akosua-gyebuah-cobbina', 'Hon. Benedicta Akosua Gyebuah Cobbina', '', 'Clerk to the Committee, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Budget and Finance','Constitution, Legal, and Senate Affairs']),
+  ('sen-bernice-forson', 'Hon. Bernice Forson', '', 'Clerk to the Committee, Academics', '2025 to 2026', array['Academics']),
+  ('sen-bright-edem-amlalo', 'Hon. Bright Edem Amlalo', '', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
+  ('sen-cecilia-kponkpori-jinche', 'Hon. Cecilia Kponkpori Jinche', '', 'Chairperson, Welfare and Health', '2025 to 2026', array['Welfare and Health']),
+  ('sen-derrick-appiah', 'Hon. Derrick Appiah', '', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
+  ('sen-dorian-esi-fynn', 'Hon. Dorian Esi Fynn', '', 'Member, Appointment', '2025 to 2026', array['Appointment']),
+  ('sen-duvor-felix', 'Hon. Duvor Felix', '', 'Chairperson, Media and Publicity', '2025 to 2026', array['Media and Publicity']),
+  ('sen-elyon-winnore-ayariga', 'Hon. Elyon Winnore Ayariga', '', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
+  ('sen-emmanuella-owusu-addo', 'Hon. Emmanuella Owusu Addo', '', 'Deputy Clerk, Business', '2025 to 2026', array['Business','Standing Orders']),
+  ('sen-erica-bofah-boateng', 'Hon. Erica Bofah Boateng', '', 'Vice Chairperson, Welfare and Health', '2025 to 2026', array['Welfare and Health']),
+  ('sen-eunice-deladem-sosoo', 'Hon. Eunice Deladem Sosoo', '', 'Clerk, Business', '2025 to 2026', array['Business','Privileges','Standing Orders']),
+  ('sen-evans-kyeremanteng', 'Hon. Evans Kyeremanteng', '', 'Vice Chairperson, Academics', '2025 to 2026', array['Academics','Business','Standing Orders']),
+  ('sen-ezekiel-kocraft', 'Hon. Ezekiel Kocraft', '', 'Vice Chairperson, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs']),
+  ('sen-genevieve-owusuwaa-karikari', 'Hon. Genevieve Owusuwaa Karikari', '', 'Clerk to the Committee, Appointment', '2025 to 2026', array['Appointment','Budget and Finance','Business']),
+  ('sen-herbert-boadu-ayisi', 'Hon. Herbert Boadu Ayisi', '', 'Chairperson, Academics', '2025 to 2026', array['Academics','Appointment','Welfare and Health']),
+  ('sen-isaac-nana-sam-mensah', 'Hon. Isaac Nana Sam Mensah', '', 'Ranking Member, Privileges', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
+  ('sen-jeffery-oteng-afriyie', 'Hon. Jeffery Oteng Afriyie', '', 'Chairperson, Science and Innovation', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Media and Publicity','Science and Innovation']),
+  ('sen-jeffrey-owusu-acheaw', 'Hon. Jeffrey Owusu Acheaw', '', 'Chairperson, Appointment', '2025 to 2026', array['Appointment','Business','Privileges']),
+  ('sen-jevillin-gyedu-owusuaa', 'Hon. Jevillin Gyedu Owusuaa', '', 'Clerk to the Committee, Media and Publicity', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
+  ('sen-kindly-osei-bediako', 'Hon. Kindly Osei Bediako', '', 'Clerk to the Committee, Welfare and Health', '2025 to 2026', array['Budget and Finance','Welfare and Health']),
+  ('sen-kofi-ewusi-acquah', 'Hon. Kofi Ewusi Acquah', '', 'Member, Welfare and Health', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
+  ('sen-michael-owusu-asiedu', 'Hon. Michael Owusu Asiedu', '', 'Clerk to the Committee, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-nana-kwame-appiah-owusu', 'Hon. Nana Kwame Appiah Owusu', '', 'Chairperson, Budget and Finance', '2025 to 2026', array['Budget and Finance','Media and Publicity']),
+  ('sen-nathaniel-bannor-amponsah', 'Hon. Nathaniel Bannor Amponsah', '', 'Chairperson, Privileges', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs','Privileges','Standing Orders']),
+  ('sen-ohene-blessing-yeboah', 'Hon. Ohene Blessing Yeboah', '', 'Ranking Member, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Science and Innovation']),
+  ('sen-oppong-palmer-buckle-charles', 'Hon. Oppong Palmer-Buckle Charles', '', 'Faculty of Biosciences Caucus Head, Business', '2025 to 2026', array['Business']),
+  ('sen-palmer-buckle-charles', 'Hon. Palmer-Buckle Charles', '', 'Vice Chairperson, Appointment', '2025 to 2026', array['Appointment','Standing Orders']),
+  ('sen-patience-amevor-mensah', 'Hon. Patience Amevor Mensah', '', 'Member, Privileges', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
+  ('sen-priscilla-esimah-mbeah', 'Hon. Priscilla Esimah Mbeah', '', 'Member, Media and Publicity', '2025 to 2026', array['Media and Publicity','Science and Innovation']),
+  ('sen-reginald-nyarko', 'Hon. Reginald Nyarko', '', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-sam-jerry-joshua', 'Hon. Sam Jerry Joshua', '', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-sawudatu-ibrahim', 'Hon. Sawudatu Ibrahim', '', 'Clerk to the Committee, Budget and Finance', '2025 to 2026', array['Budget and Finance','Welfare and Health']),
+  ('sen-simeona-abena-serwaa-asibey', 'Hon. Simeona Abena Serwaa Asibey', '', 'Member, Welfare and Health', '2025 to 2026', array['Academics','Welfare and Health']),
+  ('sen-woli-richard-kwabena', 'Hon. Woli Richard Kwabena', '', 'Member, Media and Publicity', '2025 to 2026', array['Academics','Media and Publicity']),
+  ('sen-henry-oduro-ntiamoah', 'Rt. Hon. Henry Oduro Ntiamoah', '', 'Speaker (Chairperson), Business', '2025 to 2026', array['Business','Standing Orders'])
 on conflict (id) do update set
   name = excluded.name,
   department = excluded.department,
@@ -83,8 +83,8 @@ insert into public.bills (id, title, status, sponsor, summary, updated_at) value
 on conflict (id) do update set sponsor = excluded.sponsor;
 
 insert into public.announcements (id, title, date, urgent) values
-  ('a1', 'Call for Petitions — Welfare Quarter', '2026-05-10', true),
-  ('a2', 'Senate Sitting Notice — May 2026', '2026-05-08', false),
+  ('a1', 'Call for Petitions: Welfare Quarter', '2026-05-10', true),
+  ('a2', 'Senate Sitting Notice, May 2026', '2026-05-08', false),
   ('a3', 'Constitution Review Committee Report Published', '2026-05-01', false)
 on conflict (id) do nothing;
 
@@ -94,8 +94,8 @@ insert into public.sittings (id, title, date, time, venue) values
 on conflict (id) do nothing;
 
 insert into public.sessions (id, title, date, type) values
-  ('sess1', 'First Ordinary Sitting — 2026', '2026-04-15', 'Minutes'),
-  ('sess2', 'Emergency Sitting — Welfare Motion', '2026-03-28', 'Resolution')
+  ('sess1', 'First Ordinary Sitting, 2026', '2026-04-15', 'Minutes'),
+  ('sess2', 'Emergency Sitting: Welfare Motion', '2026-03-28', 'Resolution')
 on conflict (id) do nothing;
 
 insert into public.news_items (id, title, date, category, excerpt) values

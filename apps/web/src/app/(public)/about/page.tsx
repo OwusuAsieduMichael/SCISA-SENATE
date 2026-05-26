@@ -28,7 +28,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="About the Senate"
-        description="The legislative arm of the Science Students' Association of KNUST — governing with transparency, accountability, and student welfare at the centre."
+        description="The legislative arm of the Science Students' Association of KNUST, governing with transparency, accountability, and student welfare at the centre."
       />
       <ContentSection>
         <div className="grid gap-6 md:grid-cols-2">

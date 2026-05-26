@@ -5,6 +5,7 @@ import { SpeakerWelcome } from "@/components/home/speaker-welcome";
 import { OfficerCard } from "@/components/senate/officer-card";
 import { SenatorCard } from "@/components/senate/senator-card";
 import {
+  ACADEMIC_TERM,
   getSenatePresidingOfficers,
   getSenatorsExcludingOfficers,
 } from "@/lib/governance-data";
@@ -25,7 +26,7 @@ export default function SenatorsPage() {
     <>
       <PageHeader
         title="Meet the Senators"
-        description="The presiding officers of the Senate and elected representatives of science students — portfolios, committees, and terms of office."
+        description="The presiding officers of the Senate and elected representatives of science students: portfolios, committees, and terms of office."
       />
       <SpeakerWelcome />
       <ContentSection>
@@ -48,7 +49,7 @@ export default function SenatorsPage() {
         <section>
           <SectionHeading
             title="Members of the Senate"
-            description={`Standing senators for the 2025–2026 term (${senators.length} members).`}
+            description={`Standing senators for the ${ACADEMIC_TERM} term (${senators.length} members).`}
           />
           <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {senators.map((senator) => (

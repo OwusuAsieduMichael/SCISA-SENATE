@@ -24,7 +24,7 @@ export function HeroSection() {
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
             Transparent governance, legislative records, and student representation
-            for KNUST science students — built for accountability and institutional
+            for KNUST science students, built for accountability and institutional
             continuity.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

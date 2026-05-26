@@ -43,13 +43,13 @@ export const upcomingSittings = [
 export const announcements = [
   {
     id: "1",
-    title: "Call for Petitions — Welfare Quarter",
+    title: "Call for Petitions: Welfare Quarter",
     date: "2026-05-10",
     urgent: true,
   },
   {
     id: "2",
-    title: "Senate Sitting Notice — May 2026",
+    title: "Senate Sitting Notice, May 2026",
     date: "2026-05-08",
     urgent: false,
   },
@@ -88,13 +88,13 @@ export const featuredBills = [
 export const sessions = [
   {
     id: "s1",
-    title: "First Ordinary Sitting — 2026",
+    title: "First Ordinary Sitting, 2026",
     date: "2026-04-15",
     type: "Minutes",
   },
   {
     id: "s2",
-    title: "Emergency Sitting — Welfare Motion",
+    title: "Emergency Sitting: Welfare Motion",
     date: "2026-03-28",
     type: "Resolution",
   },

@@ -1,4 +1,5 @@
 import { OfficerPortrait } from "@/components/shared/officer-portrait";
+import { ACADEMIC_TERM } from "@/lib/governance-data";
 import type { Leadership } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +26,7 @@ export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
         {officer.name}
       </h3>
       <p className="mt-1 text-sm font-medium text-destructive">{officer.role}</p>
-      <p className="mt-3 text-xs text-muted-foreground">SCISA Senate · 2025–2026</p>
+      <p className="mt-3 text-xs text-muted-foreground">SCISA Senate · {ACADEMIC_TERM}</p>
     </article>
   );
 }

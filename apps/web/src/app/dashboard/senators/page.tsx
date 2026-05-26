@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { ACADEMIC_TERM } from "@/lib/governance-data";
 import { uid } from "@/lib/storage";
 import type { Senator } from "@/lib/types";
 import { useData } from "@/providers/data-provider";
@@ -17,9 +18,9 @@ export default function DashboardSenatorsPage() {
     await upsertSenator({
       id: uid("senator"),
       name: name.trim(),
-      department: department.trim() || "—",
+      department: department.trim() || "N/A",
       portfolio: "Senator",
-      term: "2025–2026",
+      term: ACADEMIC_TERM,
       committees: [],
     });
     setName("");

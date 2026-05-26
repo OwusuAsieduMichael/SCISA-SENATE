@@ -1,5 +1,5 @@
 import { OfficerPortrait } from "@/components/shared/officer-portrait";
-import { SPEAKER_WELCOME, getSpeaker } from "@/lib/governance-data";
+import { ACADEMIC_TERM, SPEAKER_WELCOME, getSpeaker } from "@/lib/governance-data";
 
 export function SpeakerWelcome() {
   const speaker = getSpeaker();
@@ -38,7 +38,7 @@ export function SpeakerWelcome() {
           <footer className="mt-8 border-t border-border pt-6">
             <p className="font-semibold text-foreground">{SPEAKER_WELCOME.signatory}</p>
             <p className="text-sm text-destructive">{SPEAKER_WELCOME.signatoryTitle}</p>
-            <p className="mt-1 text-xs text-muted-foreground">SCISA Senate · 2025–2026</p>
+            <p className="mt-1 text-xs text-muted-foreground">SCISA Senate · {ACADEMIC_TERM}</p>
           </footer>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { OfficerPortrait } from "@/components/shared/officer-portrait";
 import { PersonAvatar } from "@/components/shared/person-avatar";
 import type { Committee, CommitteeMember } from "@/lib/types";
 import {
+  ACADEMIC_TERM,
   committeeShortName,
   getOfficerPhotoByName,
   groupCommitteeMembers,
@@ -93,7 +94,7 @@ function OfficerSlot({ title, member, accent = false }: OfficerSlotProps) {
       ) : (
         <>
           <div className="flex size-14 items-center justify-center rounded-full border border-dashed border-border bg-muted/40">
-            <span className="text-sm text-muted-foreground">—</span>
+            <span className="text-sm text-muted-foreground">N/A</span>
           </div>
           <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             {title}
@@ -181,7 +182,7 @@ export function CommitteeRoster({
           <span className="font-medium text-foreground">
             {committee.members.length}
           </span>{" "}
-          members · {committeeShortName(committee)} · Session 2025–2026
+          members · {committeeShortName(committee)} · Session {ACADEMIC_TERM}
         </span>
       </div>
 

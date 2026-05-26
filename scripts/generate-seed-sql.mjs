@@ -68,8 +68,8 @@ insert into public.bills (id, title, status, sponsor, summary, updated_at) value
 on conflict (id) do update set sponsor = excluded.sponsor;
 
 insert into public.announcements (id, title, date, urgent) values
-  ('a1', 'Call for Petitions — Welfare Quarter', '2026-05-10', true),
-  ('a2', 'Senate Sitting Notice — May 2026', '2026-05-08', false),
+  ('a1', 'Call for Petitions: Welfare Quarter', '2026-05-10', true),
+  ('a2', 'Senate Sitting Notice, May 2026', '2026-05-08', false),
   ('a3', 'Constitution Review Committee Report Published', '2026-05-01', false)
 on conflict (id) do nothing;
 
@@ -79,8 +79,8 @@ insert into public.sittings (id, title, date, time, venue) values
 on conflict (id) do nothing;
 
 insert into public.sessions (id, title, date, type) values
-  ('sess1', 'First Ordinary Sitting — 2026', '2026-04-15', 'Minutes'),
-  ('sess2', 'Emergency Sitting — Welfare Motion', '2026-03-28', 'Resolution')
+  ('sess1', 'First Ordinary Sitting, 2026', '2026-04-15', 'Minutes'),
+  ('sess2', 'Emergency Sitting: Welfare Motion', '2026-03-28', 'Resolution')
 on conflict (id) do nothing;
 
 insert into public.news_items (id, title, date, category, excerpt) values

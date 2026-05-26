@@ -26,9 +26,9 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-white/75">
-              The official legislative and governance portal of the Senate —
-              transparency, representation, and institutional integrity for all
-              science students.
+              The official legislative and governance portal of the Senate,
+              committed to transparency, representation, and institutional
+              integrity for all science students.
             </p>
           </div>
 
@@ -56,6 +56,7 @@ export function SiteFooter() {
             </p>
             <ul className="space-y-2 text-sm text-white/75">
               <li>Kwame Nkrumah University of Science and Technology</li>
+              <li>Faculty of Biosciences</li>
               <li>Faculty of Physical &amp; Computational Sciences</li>
               <li>senate@scisa.knust.edu.gh</li>
             </ul>
@@ -64,7 +65,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-center text-xs text-white/60 sm:flex-row sm:justify-between sm:text-left">
           <p>&copy; {new Date().getFullYear()} SCISA Senate, KNUST. All rights reserved.</p>
-          <p>Official Legislative Portal — Built for transparency &amp; governance</p>
+          <p>Official Legislative Portal. Built for transparency &amp; governance</p>
         </div>
       </div>
     </footer>

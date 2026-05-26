@@ -19,7 +19,7 @@ export default function DashboardOverviewPage() {
     <div>
       <h1 className="text-2xl font-bold text-primary">Overview</h1>
       <p className="mt-1 text-muted-foreground">
-        Senate operations at a glance — all data lives in your browser.
+        Senate operations at a glance. All data lives in your browser.
       </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

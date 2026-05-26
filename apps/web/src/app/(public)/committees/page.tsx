@@ -7,7 +7,11 @@ import { getOfficerPhotoByName } from "@/lib/governance-data";
 import { ContentSection } from "@/components/shared/content-section";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { committeeSlug, GOVERNANCE_COMMITTEES } from "@/lib/governance-data";
+import {
+  ACADEMIC_TERM,
+  committeeSlug,
+  GOVERNANCE_COMMITTEES,
+} from "@/lib/governance-data";
 
 export const metadata = { title: "Committees" };
 
@@ -16,7 +20,7 @@ export default function CommitteesPage() {
     <>
       <PageHeader
         title="Standing Committees"
-        description="The ten standing committees of the SCISA Senate for the 2025–2026 term. Select a committee to view its mandate and full membership roster."
+        description={`The ten standing committees of the SCISA Senate for the ${ACADEMIC_TERM} term. Select a committee to view its mandate and full membership roster.`}
       />
       <ContentSection>
         <ul className="grid gap-5 md:grid-cols-2">

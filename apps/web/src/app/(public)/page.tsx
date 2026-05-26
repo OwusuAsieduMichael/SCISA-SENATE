@@ -116,7 +116,7 @@ export default function HomePage() {
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-white/80">
             Submit petitions, review session archives, and access constitutional
-            documents — transparency is the foundation of student representation.
+            documents. Transparency is the foundation of student representation.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
