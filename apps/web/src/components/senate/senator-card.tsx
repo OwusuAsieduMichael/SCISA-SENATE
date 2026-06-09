@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import { PassportPortrait } from "@/components/shared/passport-portrait";
 import { PersonAvatar } from "@/components/shared/person-avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Senator } from "@/lib/types";
@@ -14,15 +13,12 @@ export function SenatorCard({ senator }: SenatorCardProps) {
       <div className="h-1 bg-gradient-to-r from-primary/80 via-[var(--institutional-gold)] to-primary/80" />
       <CardHeader className="space-y-4">
         {senator.imageSrc ? (
-          <div className="relative size-14 shrink-0 overflow-hidden rounded-full ring-1 ring-primary/15">
-            <Image
-              src={senator.imageSrc}
-              alt={senator.name}
-              width={56}
-              height={56}
-              className="size-full object-cover object-top"
-            />
-          </div>
+          <PassportPortrait
+            src={senator.imageSrc}
+            alt={senator.name}
+            size="lg"
+            frameClassName="ring-1 ring-primary/15"
+          />
         ) : (
           <PersonAvatar name={senator.name} size="lg" variant="default" />
         )}

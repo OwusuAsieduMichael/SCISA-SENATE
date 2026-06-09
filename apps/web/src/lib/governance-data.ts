@@ -393,9 +393,35 @@ function withSenatorPhoto(senator: Senator): Senator {
   return imageSrc ? { ...senator, imageSrc } : senator;
 }
 
+/** Constituency portfolio labels and display order for members roster. */
+const SENATOR_ROSTER_OVERRIDES: Record<
+  string,
+  { portfolio: string; department?: string; listFirst?: boolean }
+> = {
+  "Hon. Michael Owusu Asiedu": {
+    portfolio: "Computer Science Secretary",
+    department: "Computer Science",
+    listFirst: true,
+  },
+};
+
 /** Senators excluding presiding officers of the Senate. */
 export function getSenatorsExcludingOfficers(): Senator[] {
-  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name)).map(
-    withSenatorPhoto,
-  );
+  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name))
+    .map((senator) => {
+      const withPhoto = withSenatorPhoto(senator);
+      const override = SENATOR_ROSTER_OVERRIDES[senator.name];
+      if (!override) return withPhoto;
+      return {
+        ...withPhoto,
+        portfolio: override.portfolio,
+        department: override.department ?? withPhoto.department,
+      };
+    })
+    .sort((a, b) => {
+      const aFirst = SENATOR_ROSTER_OVERRIDES[a.name]?.listFirst ? 0 : 1;
+      const bFirst = SENATOR_ROSTER_OVERRIDES[b.name]?.listFirst ? 0 : 1;
+      if (aFirst !== bFirst) return aFirst - bFirst;
+      return a.name.localeCompare(b.name);
+    });
 }

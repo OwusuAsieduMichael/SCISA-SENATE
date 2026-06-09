@@ -82,6 +82,12 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Isaac Nana Sam Mensah",
   },
   {
+    filename: "Computer Science Secreatry(Michael Owusu Asiedu).jpg",
+    portfolioLabel: "Computer Science Secretary",
+    displayName: "Michael Owusu Asiedu",
+    governanceName: "Hon. Michael Owusu Asiedu",
+  },
+  {
     filename: "Environmental Science President((Appiah Derrick).jpeg",
     portfolioLabel: "Environmental Science President",
     displayName: "Appiah Derrick",

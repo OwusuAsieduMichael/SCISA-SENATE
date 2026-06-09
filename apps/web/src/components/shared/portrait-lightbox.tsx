@@ -4,6 +4,10 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
+import {
+  passportImageClass,
+  passportImageStyle,
+} from "@/components/shared/passport-portrait";
 import { cn } from "@/lib/utils";
 
 type PortraitLightboxProps = {
@@ -60,13 +64,13 @@ export function PortraitLightbox({
         type="button"
         onClick={openViewer}
         className={cn(
-          "group relative shrink-0 cursor-zoom-in rounded-full border-0 bg-transparent p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] focus-visible:ring-offset-2",
+          "group relative shrink-0 cursor-zoom-in rounded-md border-0 bg-transparent p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] focus-visible:ring-offset-2",
           className,
         )}
         aria-label={`View photo of ${name}`}
       >
         {children}
-        <span className="pointer-events-none absolute inset-0 rounded-full bg-black/0 transition-colors group-hover:bg-black/10 group-active:bg-black/15" />
+        <span className="pointer-events-none absolute inset-0 rounded-md bg-black/0 transition-colors group-hover:bg-black/10 group-active:bg-black/15" />
       </button>
 
       <dialog
@@ -89,14 +93,15 @@ export function PortraitLightbox({
             <X className="size-4" aria-hidden />
           </button>
 
-          <div className="relative mt-2 size-56 overflow-hidden rounded-full ring-4 ring-[var(--institutional-gold)]/35 ring-offset-4 ring-offset-card sm:size-64">
+          <div className="relative mt-2 w-56 overflow-hidden rounded-md aspect-[35/45] ring-4 ring-[var(--institutional-gold)]/35 ring-offset-4 ring-offset-card sm:w-64">
             <Image
               src={imageSrc}
               alt={name}
-              width={512}
-              height={512}
+              width={448}
+              height={576}
               priority={priority}
-              className="size-full object-cover object-top"
+              className={passportImageClass}
+              style={passportImageStyle}
             />
           </div>
 
