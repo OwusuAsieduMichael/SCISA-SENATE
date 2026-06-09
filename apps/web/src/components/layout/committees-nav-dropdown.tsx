@@ -8,17 +8,20 @@ import { useEffect, useRef, useState } from "react";
 import type { NavDropdown } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
-type CommitteesNavDropdownProps = {
+type NavMenuDropdownProps = {
   item: NavDropdown;
   variant?: "desktop" | "mobile";
   onNavigate?: () => void;
+  /** Link label for the parent section hub (e.g. "View all committees"). */
+  hubLinkLabel?: string;
 };
 
-export function CommitteesNavDropdown({
+export function NavMenuDropdown({
   item,
   variant = "desktop",
   onNavigate,
-}: CommitteesNavDropdownProps) {
+  hubLinkLabel = "View all",
+}: NavMenuDropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -57,7 +60,7 @@ export function CommitteesNavDropdown({
             isActive && "bg-white/10 text-white",
           )}
         >
-          All Committees
+          {hubLinkLabel}
         </Link>
         <ul className="ml-2 space-y-0.5 border-l border-white/15 pl-2">
           {item.children.map((child) => (
@@ -111,7 +114,7 @@ export function CommitteesNavDropdown({
             }}
             className="block border-b border-border px-4 py-2.5 text-sm font-semibold text-primary hover:bg-muted"
           >
-            View all committees
+            {hubLinkLabel}
           </Link>
           <ul className="max-h-[min(24rem,70vh)] overflow-y-auto py-1">
             {item.children.map((child) => (
@@ -138,3 +141,6 @@ export function CommitteesNavDropdown({
     </div>
   );
 }
+
+/** @deprecated Use NavMenuDropdown */
+export const CommitteesNavDropdown = NavMenuDropdown;

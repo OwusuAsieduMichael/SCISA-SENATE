@@ -101,9 +101,10 @@ export const sessions = [
 ];
 
 export const constitutionDocs = [
-  { title: "SCISA Constitution", type: "PDF", size: "2.4 MB" },
-  { title: "Senate Standing Orders", type: "PDF", size: "1.1 MB" },
-  { title: "Governance Policy Framework", type: "PDF", size: "890 KB" },
+  { title: "Standing Orders", type: "PDF", size: "Pending" },
+  { title: "SRC Constitution 2021", type: "PDF", size: "Available" },
+  { title: "SCISA Constitution (Amended 2020)", type: "PDF", size: "Available" },
+  { title: "Departmental Constitutions", type: "Mixed", size: "8 societies" },
 ];
 
 export const newsItems = [

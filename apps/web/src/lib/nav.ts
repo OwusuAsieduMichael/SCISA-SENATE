@@ -1,3 +1,4 @@
+import { CONSTITUTION_NAV_LINKS } from "@/lib/constitution-data";
 import { COMMITTEE_NAV_LINKS } from "@/lib/governance-data";
 
 export type NavLink = {
@@ -18,11 +19,24 @@ export function isNavDropdown(entry: NavEntry): entry is NavDropdown {
   return "type" in entry && entry.type === "dropdown";
 }
 
+export function navDropdownHubLabel(item: NavDropdown): string {
+  if (item.label === "Committees") return "All committees";
+  if (item.label === "Constitution") return "Constitution portal";
+  return "View all";
+}
+
 export const committeeNav: NavDropdown = {
   type: "dropdown",
   label: "Committees",
   href: "/committees",
   children: COMMITTEE_NAV_LINKS,
+};
+
+export const constitutionNav: NavDropdown = {
+  type: "dropdown",
+  label: "Constitution",
+  href: "/constitution",
+  children: CONSTITUTION_NAV_LINKS,
 };
 
 export const mainNav: NavEntry[] = [
@@ -31,7 +45,7 @@ export const mainNav: NavEntry[] = [
   { label: "Bills & Motions", href: "/bills" },
   committeeNav,
   { label: "Sessions", href: "/sessions" },
-  { label: "Constitution", href: "/constitution" },
+  constitutionNav,
   { label: "Petitions", href: "/petitions" },
   { label: "News", href: "/news" },
 ];

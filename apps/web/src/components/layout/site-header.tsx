@@ -7,9 +7,9 @@ import { Menu, X } from "lucide-react";
 import { useCallback, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { CommitteesNavDropdown } from "@/components/layout/committees-nav-dropdown";
+import { NavMenuDropdown } from "@/components/layout/committees-nav-dropdown";
 import { buttonVariants } from "@/components/ui/button";
-import { isNavDropdown, mainNav } from "@/lib/nav";
+import { isNavDropdown, mainNav, navDropdownHubLabel } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -76,11 +76,12 @@ export function SiteHeader() {
                 <div className="flex flex-col gap-0.5">
                   {mainNav.map((item) =>
                     isNavDropdown(item) ? (
-                      <CommitteesNavDropdown
+                      <NavMenuDropdown
                         key={item.label}
                         item={item}
                         variant="mobile"
                         onNavigate={closeMenu}
+                        hubLinkLabel={navDropdownHubLabel(item)}
                       />
                     ) : (
                       <Link
@@ -159,7 +160,11 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
             {mainNav.map((item) =>
               isNavDropdown(item) ? (
-                <CommitteesNavDropdown key={item.label} item={item} />
+                <NavMenuDropdown
+                  key={item.label}
+                  item={item}
+                  hubLinkLabel={navDropdownHubLabel(item)}
+                />
               ) : (
                 <Link
                   key={item.href}
