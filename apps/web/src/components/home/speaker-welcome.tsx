@@ -16,7 +16,7 @@ export function SpeakerWelcome() {
             size="2xl"
             variant="officer"
             priority
-            className="!w-24 shadow-md sm:!w-28 lg:!w-32"
+            className="!size-24 shadow-md sm:!size-28 lg:!size-32"
           />
           <p className="mt-3 text-sm font-semibold text-foreground sm:mt-4">{speaker.name}</p>
           <p className="mt-0.5 text-xs font-medium text-destructive sm:text-sm">{speaker.role}</p>

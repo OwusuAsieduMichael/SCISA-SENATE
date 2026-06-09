@@ -3,11 +3,11 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export const passportSizes = {
-  sm: { class: "w-9", px: 36 },
-  md: { class: "w-11", px: 44 },
-  lg: { class: "w-14", px: 56 },
-  xl: { class: "w-20", px: 80 },
-  "2xl": { class: "w-32", px: 128 },
+  sm: { class: "size-9", px: 36 },
+  md: { class: "size-11", px: 44 },
+  lg: { class: "size-14", px: 56 },
+  xl: { class: "size-20", px: 80 },
+  "2xl": { class: "size-32", px: 128 },
 } as const;
 
 export type PassportSize = keyof typeof passportSizes;
@@ -27,7 +27,7 @@ type PassportPortraitProps = {
   priority?: boolean;
 };
 
-/** ICAO passport ratio (35×45 mm) with zoomed face framing. */
+/** Circular portrait with zoomed face framing for varied source photos. */
 export function PassportPortrait({
   src,
   alt,
@@ -36,14 +36,13 @@ export function PassportPortrait({
   frameClassName,
   priority = false,
 }: PassportPortraitProps) {
-  const { class: widthClass, px } = passportSizes[size];
-  const height = Math.round(px * (45 / 35));
+  const { class: frameClass, px } = passportSizes[size];
 
   return (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden rounded-md aspect-[35/45]",
-        widthClass,
+        "relative shrink-0 overflow-hidden rounded-full",
+        frameClass,
         frameClassName,
       )}
     >
@@ -51,7 +50,7 @@ export function PassportPortrait({
         src={src}
         alt={alt}
         width={px}
-        height={height}
+        height={px}
         priority={priority}
         className={cn(passportImageClass, className)}
         style={passportImageStyle}
