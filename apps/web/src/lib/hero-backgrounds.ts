@@ -6,5 +6,8 @@ export const HERO_BACKGROUND_SLIDES = [
   encodeURI("/Background IMAGES/BACK4.jpg"),
 ] as const;
 
-/** Milliseconds each slide is visible before crossfading to the next. */
-export const HERO_SLIDE_INTERVAL_MS = 6000;
+/** Milliseconds each slide is visible before swiping to the next. */
+export const HERO_SLIDE_INTERVAL_MS = 5000;
+
+/** Swipe animation duration in milliseconds. */
+export const HERO_SLIDE_TRANSITION_MS = 800;
