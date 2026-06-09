@@ -1,5 +1,8 @@
 import type { Committee, CommitteeMember, Leadership, Senator } from "@/lib/types";
-import { getSenatorPhotoByGovernanceName } from "@/lib/senator-photos";
+import {
+  getSenatorConstituencyByGovernanceName,
+  getSenatorPhotoByGovernanceName,
+} from "@/lib/senator-photos";
 
 /** Academic session label for public copy (no en dash). */
 export const ACADEMIC_TERM = "2025 to 2026";
@@ -359,6 +362,7 @@ export function buildSenatorsFromCommittees(committees: Committee[]): Senator[] 
       id: `sen-${slugifyName(name)}`,
       name,
       department: "",
+      constituency: "",
       portfolio: primaryPortfolio(memberships),
       term: ACADEMIC_TERM,
       committees: [...new Set(memberships.map((m) => m.committee))].sort(),
@@ -393,17 +397,42 @@ function withSenatorPhoto(senator: Senator): Senator {
   return imageSrc ? { ...senator, imageSrc } : senator;
 }
 
-/** Constituency portfolio labels and display order for members roster. */
+/** Portfolio labels and display order for members roster. */
 const SENATOR_ROSTER_OVERRIDES: Record<
   string,
-  { portfolio: string; department?: string; listFirst?: boolean }
+  { portfolio: string; constituency?: string; listFirst?: boolean }
 > = {
   "Hon. Michael Owusu Asiedu": {
     portfolio: "Computer Science Secretary",
-    department: "Computer Science",
+    constituency: "Computer Science",
     listFirst: true,
   },
 };
+
+const SENATOR_CONSTITUENCY_BY_NAME: Record<string, string> = {
+  "Hon. Erica Bofah Boateng": "Biological Science",
+  "Hon. Duvor Felix": "Media and Publicity",
+  "Hon. Bright Edem Amlalo": "Standing Orders",
+  "Hon. Elyon Winnore Ayariga": "Standing Orders",
+  "Hon. Simeona Abena Serwaa Asibey": "Academics",
+  "Hon. Woli Richard Kwabena": "Academics",
+};
+
+function resolveSenatorConstituency(senator: Senator): string {
+  const override = SENATOR_ROSTER_OVERRIDES[senator.name]?.constituency;
+  if (override) return override;
+
+  const fromPhoto = getSenatorConstituencyByGovernanceName(senator.name);
+  if (fromPhoto) return fromPhoto;
+
+  const manual = SENATOR_CONSTITUENCY_BY_NAME[senator.name];
+  if (manual) return manual;
+
+  const caucusMatch = senator.portfolio.match(/^(.+ Caucus) Head/);
+  if (caucusMatch) return caucusMatch[1];
+
+  return "At-Large";
+}
 
 /** Senators excluding presiding officers of the Senate. */
 export function getSenatorsExcludingOfficers(): Senator[] {
@@ -411,11 +440,15 @@ export function getSenatorsExcludingOfficers(): Senator[] {
     .map((senator) => {
       const withPhoto = withSenatorPhoto(senator);
       const override = SENATOR_ROSTER_OVERRIDES[senator.name];
-      if (!override) return withPhoto;
+      const constituency = resolveSenatorConstituency(senator);
+      if (!override) {
+        return { ...withPhoto, constituency, department: constituency };
+      }
       return {
         ...withPhoto,
         portfolio: override.portfolio,
-        department: override.department ?? withPhoto.department,
+        constituency: override.constituency ?? constituency,
+        department: override.constituency ?? constituency,
       };
     })
     .sort((a, b) => {

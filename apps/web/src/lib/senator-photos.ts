@@ -177,6 +177,41 @@ export function getSenatorPhotoByGovernanceName(name: string): string | undefine
   return entry ? senatorPhotoUrl(entry.filename) : undefined;
 }
 
+/** Constituency (department / year group / society) keyed by governance roster name. */
+const CONSTITUENCY_BY_GOVERNANCE_NAME: Record<string, string> = {
+  "Hon. Oppong Palmer-Buckle Charles": "2nd Years",
+  "Hon. Palmer-Buckle Charles": "Faculty of Biosciences",
+  "Hon. Sawudatu Ibrahim": "Mathematics",
+  "Hon. Reginald Nyarko": "5th Years",
+  "Hon. Kofi Ewusi Acquah": "6th Years",
+  "Hon. Kindly Osei Bediako": "Actuarial Science",
+  "Hon. Nathaniel Bannor Amponsah": "Actuarial Science",
+  "Hon. Nana Kwame Appiah Owusu": "Biochemistry",
+  "Hon. Patience Amevor Mensah": "Biological Science",
+  "Hon. Cecilia Kponkpori Jinche": "Biological Science",
+  "Hon. Ezekiel Kocraft": "Chemical Society",
+  "Hon. Priscilla Esimah Mbeah": "Chemical Society",
+  "Hon. Isaac Nana Sam Mensah": "Computer Science",
+  "Hon. Michael Owusu Asiedu": "Computer Science",
+  "Hon. Derrick Appiah": "Environmental Science",
+  "Hon. Appiah Derrick": "Environmental Science",
+  "Hon. Abraham Appiah": "Food Science",
+  "Hon. Benedicta Akosua Gyebuah Cobbina": "Food Science",
+  "Hon. Evans Kyeremanteng": "Mathematics",
+  "Hon. Jevillin Gyedu Owusuaa": "Meteorology Science",
+  "Hon. Ohene Blessing Yeboah": "Optometry",
+  "Hon. Genevieve Owusuwaa Karikari": "Optometry",
+  "Hon. Jeffery Oteng Afriyie": "Physics",
+  "Hon. Dorian Esi Fynn": "Physics",
+  "Hon. Herbert Boadu Ayisi": "Statistics",
+  "Hon. Bernice Forson": "Statistics",
+  "Hon. Jeffrey Owusu Acheaw": "Year Representatives",
+};
+
+export function getSenatorConstituencyByGovernanceName(name: string): string | undefined {
+  return CONSTITUENCY_BY_GOVERNANCE_NAME[name];
+}
+
 export function getSenatorPhotoEntries(): SenatorPhotoEntry[] {
   return SENATOR_PHOTO_ENTRIES;
 }

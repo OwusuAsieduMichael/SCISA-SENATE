@@ -32,12 +32,10 @@ export function SenatorCard({ senator }: SenatorCardProps) {
         </div>
       </CardHeader>
       <CardContent className="space-y-2 border-t border-border pt-4 text-sm text-muted-foreground">
-        {senator.department ? (
-          <p>
-            <span className="font-medium text-foreground">Faculty: </span>
-            {senator.department}
-          </p>
-        ) : null}
+        <p>
+          <span className="font-medium text-foreground">Constituency: </span>
+          {senator.constituency}
+        </p>
         <p>
           <span className="font-medium text-foreground">Term: </span>
           {senator.term}

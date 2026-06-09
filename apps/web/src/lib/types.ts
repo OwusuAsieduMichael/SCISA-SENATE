@@ -23,6 +23,8 @@ export type Senator = {
   id: string;
   name: string;
   department: string;
+  /** Department, year group, or caucus the senator represents. */
+  constituency: string;
   portfolio: string;
   term: string;
   committees: string[];

@@ -54,6 +54,7 @@ export function mapSenator(
     id: row.id,
     name: row.name,
     department: row.department,
+    constituency: row.department,
     portfolio: row.portfolio,
     term: row.term,
     committees: row.committees ?? [],

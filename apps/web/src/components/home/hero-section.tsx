@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Shield } from "lucide-react";
 
+import { HeroBackgroundSlideshow } from "@/components/home/hero-background-slideshow";
 import { buttonVariants } from "@/components/ui/button";
 import { upcomingSittings } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
@@ -10,10 +11,10 @@ export function HeroSection() {
   const nextSitting = upcomingSittings[0];
 
   return (
-    <section className="institutional-gradient relative overflow-hidden text-white">
-      <div className="gold-accent-line w-full" />
-      <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_30%_20%,white_0%,transparent_50%)]" />
-      <div className="relative mx-auto grid max-w-7xl gap-8 px-3 py-10 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:py-24 lg:px-8">
+    <section className="relative overflow-hidden text-white">
+      <HeroBackgroundSlideshow />
+      <div className="gold-accent-line relative z-[1] w-full" />
+      <div className="relative z-[1] mx-auto grid max-w-7xl gap-8 px-3 py-10 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:py-24 lg:px-8">
         <div>
           <p className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[var(--institutional-gold)] sm:gap-2 sm:px-3 sm:py-1 sm:text-xs sm:tracking-widest">
             <Shield className="size-3 sm:size-3.5" />

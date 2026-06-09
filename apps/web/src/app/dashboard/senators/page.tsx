@@ -15,10 +15,12 @@ export default function DashboardSenatorsPage() {
   async function add(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim()) return;
+    const constituency = department.trim() || "N/A";
     await upsertSenator({
       id: uid("senator"),
       name: name.trim(),
-      department: department.trim() || "N/A",
+      department: constituency,
+      constituency,
       portfolio: "Senator",
       term: ACADEMIC_TERM,
       committees: [],
