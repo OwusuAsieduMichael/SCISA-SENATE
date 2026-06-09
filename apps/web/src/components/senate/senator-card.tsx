@@ -1,4 +1,4 @@
-import { PassportPortrait } from "@/components/shared/passport-portrait";
+import { OfficerPortrait } from "@/components/shared/officer-portrait";
 import { PersonAvatar } from "@/components/shared/person-avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Senator } from "@/lib/types";
@@ -13,11 +13,13 @@ export function SenatorCard({ senator }: SenatorCardProps) {
       <div className="h-1 bg-gradient-to-r from-primary/80 via-[var(--institutional-gold)] to-primary/80" />
       <CardHeader className="space-y-4">
         {senator.imageSrc ? (
-          <PassportPortrait
-            src={senator.imageSrc}
-            alt={senator.name}
+          <OfficerPortrait
+            name={senator.name}
+            imageSrc={senator.imageSrc}
+            subtitle={senator.portfolio}
             size="lg"
-            frameClassName="ring-1 ring-primary/15"
+            variant="default"
+            enlargeable
           />
         ) : (
           <PersonAvatar name={senator.name} size="lg" variant="default" />
