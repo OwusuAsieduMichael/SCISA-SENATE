@@ -27,6 +27,8 @@ export type Senator = {
   term: string;
   committees: string[];
   achievements?: string;
+  /** Public path under /senators for constituency portrait. */
+  imageSrc?: string;
 };
 
 export type Petition = {

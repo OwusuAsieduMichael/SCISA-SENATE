@@ -26,9 +26,9 @@ export default function HomePage() {
       <ContentSection>
         <SectionHeading
           title="Leadership of the Senate"
-          description="The presiding officers and clerk steward legislative proceedings and institutional records."
+          description="The presiding officers, clerk, and deputy clerk steward legislative proceedings and institutional records."
         />
-        <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {officers.map((officer) => (
             <OfficerCard
               key={officer.id}

@@ -67,11 +67,12 @@ export const CONSTITUTION_NAV_LINKS = CONSTITUTION_CATEGORIES.map((category) => 
 const STANDING_ORDERS: ConstitutionDocument = {
   id: "standing-orders",
   slug: "standing-orders",
-  title: "Senate Standing Orders",
+  title: "SCISA Senate Standing Orders (Draft)",
   category: "standing-orders",
+  filename: "SCISA SENATE STANDING ORDERS (DRAFT) OCT 18[1][1].pdf",
   fileType: "pdf",
   description:
-    "Rules of procedure for the Senate of the Science Students' Association. Upload the PDF to public/CONSTITUTIONS to enable download and in-browser reading.",
+    "Draft standing orders governing the procedure of the Senate of the Science Students' Association.",
 };
 
 const SRC_CONSTITUTION: ConstitutionDocument = {

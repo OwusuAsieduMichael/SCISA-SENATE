@@ -1,0 +1,176 @@
+/** Senator portrait files in public/senators — portfolio label + name in parentheses. */
+
+export type SenatorPhotoEntry = {
+  filename: string;
+  portfolioLabel: string;
+  displayName: string;
+  /** Full name as used in governance rosters, when matched. */
+  governanceName?: string;
+};
+
+const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
+  {
+    filename: "2nd Years Rep(Palmer Buckles).jpeg",
+    portfolioLabel: "2nd Years Representative",
+    displayName: "Palmer Buckles",
+    governanceName: "Hon. Oppong Palmer-Buckle Charles",
+  },
+  {
+    filename: "3rd Year Rep & Mathematics Secretary(Sawudatu Ibrahim).jpeg",
+    portfolioLabel: "3rd Year Representative & Mathematics Secretary",
+    displayName: "Sawudatu Ibrahim",
+    governanceName: "Hon. Sawudatu Ibrahim",
+  },
+  {
+    filename: "5th Years Rep(Rginald Nyarko).jpeg",
+    portfolioLabel: "5th Years Representative",
+    displayName: "Reginald Nyarko",
+    governanceName: "Hon. Reginald Nyarko",
+  },
+  {
+    filename: "6th Years Rep(Kofi Owusu Acquah).jpeg",
+    portfolioLabel: "6th Years Representative",
+    displayName: "Kofi Owusu Acquah",
+    governanceName: "Hon. Kofi Ewusi Acquah",
+  },
+  {
+    filename: "Actuarial Sci Secretary(Kindly Osei Bediako).jpeg",
+    portfolioLabel: "Actuarial Science Secretary",
+    displayName: "Kindly Osei Bediako",
+    governanceName: "Hon. Kindly Osei Bediako",
+  },
+  {
+    filename: "Actuarial Science President(Nathaniel Bannor).jpeg",
+    portfolioLabel: "Actuarial Science President",
+    displayName: "Nathaniel Bannor",
+    governanceName: "Hon. Nathaniel Bannor Amponsah",
+  },
+  {
+    filename: "Biochemistry Students President(Nana Kwame Appiah Owusu).jpeg",
+    portfolioLabel: "Biochemistry Students President",
+    displayName: "Nana Kwame Appiah Owusu",
+    governanceName: "Hon. Nana Kwame Appiah Owusu",
+  },
+  {
+    filename: "Biological Science President(Patience Amevor Mensah).jpeg",
+    portfolioLabel: "Biological Science President",
+    displayName: "Patience Amevor Mensah",
+    governanceName: "Hon. Patience Amevor Mensah",
+  },
+  {
+    filename: "Biological Science Secretary(Kponkpori Cecelia Jinche).jpeg",
+    portfolioLabel: "Biological Science Secretary",
+    displayName: "Kponkpori Cecelia Jinche",
+    governanceName: "Hon. Cecilia Kponkpori Jinche",
+  },
+  {
+    filename: "Chemical Societ President(Ezekiel Kocraft).jpeg",
+    portfolioLabel: "Chemical Society President",
+    displayName: "Ezekiel Kocraft",
+    governanceName: "Hon. Ezekiel Kocraft",
+  },
+  {
+    filename: "Chemical Society Secretary(Priscilla Mbeah Esimah).jpeg",
+    portfolioLabel: "Chemical Society Secretary",
+    displayName: "Priscilla Mbeah Esimah",
+    governanceName: "Hon. Priscilla Esimah Mbeah",
+  },
+  {
+    filename: "Computer Science President(Mensah Isaac Nana Sam).jpeg",
+    portfolioLabel: "Computer Science President",
+    displayName: "Isaac Nana Sam Mensah",
+    governanceName: "Hon. Isaac Nana Sam Mensah",
+  },
+  {
+    filename: "Environmental Science President((Appiah Derrick).jpeg",
+    portfolioLabel: "Environmental Science President",
+    displayName: "Appiah Derrick",
+    governanceName: "Hon. Derrick Appiah",
+  },
+  {
+    filename: "Environmental Science Secretary(Sam Jerry Joshua).jpeg",
+    portfolioLabel: "Environmental Science Secretary",
+    displayName: "Sam Jerry Joshua",
+    governanceName: "Hon. Sam Jerry Joshua",
+  },
+  {
+    filename: "Food Science President(Appiah Abraham Atta Panyin).jpeg",
+    portfolioLabel: "Food Science President",
+    displayName: "Appiah Abraham Atta Panyin",
+    governanceName: "Hon. Abraham Appiah",
+  },
+  {
+    filename: "Food Science Secretary(Benedicta Cobbina).jpeg",
+    portfolioLabel: "Food Science Secretary",
+    displayName: "Benedicta Cobbina",
+    governanceName: "Hon. Benedicta Akosua Gyebuah Cobbina",
+  },
+  {
+    filename: "Mathematics President(Evans Kyeremanteng).jpeg",
+    portfolioLabel: "Mathematics President",
+    displayName: "Evans Kyeremanteng",
+    governanceName: "Hon. Evans Kyeremanteng",
+  },
+  {
+    filename: "Meteorology Science Secretary(Jevillin Owusuaa Gyedu).jpeg",
+    portfolioLabel: "Meteorology Science Secretary",
+    displayName: "Jevillin Owusuaa Gyedu",
+    governanceName: "Hon. Jevillin Gyedu Owusuaa",
+  },
+  {
+    filename: "Optometry President(Ohene Blessing Yeboah).jpeg",
+    portfolioLabel: "Optometry President",
+    displayName: "Ohene Blessing Yeboah",
+    governanceName: "Hon. Ohene Blessing Yeboah",
+  },
+  {
+    filename: "Optometry Secreatry(Genevieve Owusuaa Kakari).jpeg",
+    portfolioLabel: "Optometry Secretary",
+    displayName: "Genevieve Owusuaa Kakari",
+    governanceName: "Hon. Genevieve Owusuwaa Karikari",
+  },
+  {
+    filename: "Physics President(Jeffery Oteng Afriyie).jpeg",
+    portfolioLabel: "Physics President",
+    displayName: "Jeffery Oteng Afriyie",
+    governanceName: "Hon. Jeffery Oteng Afriyie",
+  },
+  {
+    filename: "Physics Secretary(Dorian Esi Fynn).jpeg",
+    portfolioLabel: "Physics Secretary",
+    displayName: "Dorian Esi Fynn",
+    governanceName: "Hon. Dorian Esi Fynn",
+  },
+  {
+    filename: "Statistics President(Herbet Boadu Ayisi).jpeg",
+    portfolioLabel: "Statistics President",
+    displayName: "Herbert Boadu Ayisi",
+    governanceName: "Hon. Herbert Boadu Ayisi",
+  },
+  {
+    filename: "Statistics Secretary(Bernice Forson).jpeg",
+    portfolioLabel: "Statistics Secretary",
+    displayName: "Bernice Forson",
+    governanceName: "Hon. Bernice Forson",
+  },
+];
+
+const photoByGovernanceName = new Map(
+  SENATOR_PHOTO_ENTRIES.filter((entry) => entry.governanceName).map((entry) => [
+    entry.governanceName!,
+    entry,
+  ]),
+);
+
+export function senatorPhotoUrl(filename: string): string {
+  return `/senators/${encodeURIComponent(filename)}`;
+}
+
+export function getSenatorPhotoByGovernanceName(name: string): string | undefined {
+  const entry = photoByGovernanceName.get(name);
+  return entry ? senatorPhotoUrl(entry.filename) : undefined;
+}
+
+export function getSenatorPhotoEntries(): SenatorPhotoEntry[] {
+  return SENATOR_PHOTO_ENTRIES;
+}

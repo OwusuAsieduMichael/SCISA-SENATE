@@ -1,4 +1,5 @@
 import type { Committee, CommitteeMember, Leadership, Senator } from "@/lib/types";
+import { getSenatorPhotoByGovernanceName } from "@/lib/senator-photos";
 
 /** Academic session label for public copy (no en dash). */
 export const ACADEMIC_TERM = "2025 to 2026";
@@ -39,6 +40,12 @@ export const GOVERNANCE_LEADERSHIP: Leadership[] = [
     role: "Clerk of the Senate",
     department: "",
     imageSrc: OFFICER_PHOTO_PATHS.clerk,
+  },
+  {
+    id: "l4",
+    name: "Hon. Emmanuella Owusu Addo",
+    role: "Deputy Clerk of the Senate",
+    department: "",
   },
 ];
 
@@ -375,10 +382,20 @@ export function getSpeaker(): Leadership | undefined {
 
 /** Portrait path for a presiding officer when listed on committee rosters. */
 export function getOfficerPhotoByName(name: string): string | undefined {
-  return GOVERNANCE_LEADERSHIP.find((o) => o.name === name)?.imageSrc;
+  return (
+    GOVERNANCE_LEADERSHIP.find((o) => o.name === name)?.imageSrc ??
+    getSenatorPhotoByGovernanceName(name)
+  );
 }
 
-/** Senators excluding the Speaker, Deputy Speaker, and Clerk. */
+function withSenatorPhoto(senator: Senator): Senator {
+  const imageSrc = getSenatorPhotoByGovernanceName(senator.name);
+  return imageSrc ? { ...senator, imageSrc } : senator;
+}
+
+/** Senators excluding presiding officers of the Senate. */
 export function getSenatorsExcludingOfficers(): Senator[] {
-  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name));
+  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name)).map(
+    withSenatorPhoto,
+  );
 }

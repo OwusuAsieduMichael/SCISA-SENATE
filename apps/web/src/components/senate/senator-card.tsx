@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { PersonAvatar } from "@/components/shared/person-avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Senator } from "@/lib/types";
@@ -11,7 +13,19 @@ export function SenatorCard({ senator }: SenatorCardProps) {
     <Card className="h-full overflow-hidden">
       <div className="h-1 bg-gradient-to-r from-primary/80 via-[var(--institutional-gold)] to-primary/80" />
       <CardHeader className="space-y-4">
-        <PersonAvatar name={senator.name} size="lg" variant="default" />
+        {senator.imageSrc ? (
+          <div className="relative size-14 shrink-0 overflow-hidden rounded-full ring-1 ring-primary/15">
+            <Image
+              src={senator.imageSrc}
+              alt={senator.name}
+              width={56}
+              height={56}
+              className="size-full object-cover object-top"
+            />
+          </div>
+        ) : (
+          <PersonAvatar name={senator.name} size="lg" variant="default" />
+        )}
         <div>
           <CardTitle className="text-base leading-snug sm:text-lg">{senator.name}</CardTitle>
           <p className="mt-1.5 text-sm font-medium text-destructive">
