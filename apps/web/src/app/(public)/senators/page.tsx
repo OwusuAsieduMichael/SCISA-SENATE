@@ -19,8 +19,16 @@ export default function SenatorsPage() {
   const deputy = officers.find((o) => o.role === "Deputy Speaker");
   const clerk = officers.find((o) => o.role === "Clerk of the Senate");
   const deputyClerk = officers.find((o) => o.role.includes("Deputy Clerk"));
+  const marshal = officers.find((o) => o.role.includes("Marshal"));
+  const protocol = officers.find((o) => o.role.includes("Protocol"));
   const otherOfficers = officers.filter(
-    (o) => o !== speaker && o !== deputy && o !== clerk && o !== deputyClerk,
+    (o) =>
+      o !== speaker &&
+      o !== deputy &&
+      o !== clerk &&
+      o !== deputyClerk &&
+      o !== marshal &&
+      o !== protocol,
   );
 
   return (
@@ -35,13 +43,15 @@ export default function SenatorsPage() {
         <section>
           <SectionHeading
             title="Officers of the Senate"
-            description="The Speaker, Deputy Speaker, Clerk, and Deputy Clerk preside over sittings and steward the records of the House."
+            description="The Speaker, Clerk, Marshal, and Protocol officers preside over sittings, steward the records of the House, and uphold chamber order and ceremony."
           />
           <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {speaker ? <OfficerCard officer={speaker} highlight /> : null}
             {deputy ? <OfficerCard officer={deputy} /> : null}
             {clerk ? <OfficerCard officer={clerk} /> : null}
             {deputyClerk ? <OfficerCard officer={deputyClerk} /> : null}
+            {marshal ? <OfficerCard officer={marshal} /> : null}
+            {protocol ? <OfficerCard officer={protocol} /> : null}
             {otherOfficers.map((officer) => (
               <OfficerCard key={officer.id} officer={officer} />
             ))}

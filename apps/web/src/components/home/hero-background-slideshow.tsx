@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import {
+  getHeroSlideStyle,
   HERO_BACKGROUND_SLIDES,
   HERO_SLIDE_INTERVAL_MS,
   HERO_SLIDE_TRANSITION_MS,
@@ -55,16 +56,22 @@ export function HeroBackgroundSlideshow() {
             : "none",
         }}
       >
-        {loopSlides.map((src, slideIndex) => (
-          <div
-            key={`${src}-${slideIndex}`}
-            className="h-full shrink-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              width: `${100 / slideCount}%`,
-              backgroundImage: `url("${src}")`,
-            }}
-          />
-        ))}
+        {loopSlides.map((src, slideIndex) => {
+          const slideStyle = getHeroSlideStyle(src);
+
+          return (
+            <div
+              key={`${src}-${slideIndex}`}
+              className="h-full shrink-0 bg-[#0a1738] bg-no-repeat"
+              style={{
+                width: `${100 / slideCount}%`,
+                backgroundImage: `url("${src}")`,
+                backgroundPosition: slideStyle.backgroundPosition,
+                backgroundSize: slideStyle.backgroundSize,
+              }}
+            />
+          );
+        })}
       </div>
       <div className="absolute inset-0 bg-black/35" />
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--senate-blue)]/75 via-[var(--senate-blue)]/45 to-[#0a1738]/65" />

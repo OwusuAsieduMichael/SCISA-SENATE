@@ -8,7 +8,10 @@ delete from public.senators;
 insert into public.leadership (id, name, role, department) values
   ('l1', 'Rt. Hon. Henry Oduro Ntiamoah', 'Speaker of the Senate', ''),
   ('l2', 'Hon. Nathaniel Bannor Amponsah', 'Deputy Speaker', ''),
-  ('l3', 'Hon. Eunice Deladem Sosoo', 'Clerk of the Senate', '')
+  ('l3', 'Hon. Eunice Deladem Sosoo', 'Clerk of the Senate', ''),
+  ('l4', 'Hon. Emmanuella Owusu Addo', 'Deputy Clerk of the Senate', ''),
+  ('l5', 'To be announced', 'Marshal of the Senate', ''),
+  ('l6', 'To be announced', 'Director of Protocol', '')
 on conflict (id) do update set
   name = excluded.name,
   role = excluded.role,

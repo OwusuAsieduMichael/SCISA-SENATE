@@ -11,6 +11,10 @@ export const OFFICER_PHOTO_PATHS = {
   speaker: "/brand/speaker.jpeg",
   deputySpeaker: "/brand/deputy-speaker.jpeg",
   clerk: "/brand/clerk.jpeg",
+  /** Drop portrait at public/brand/marshal.jpeg to show on leadership cards. */
+  marshal: "/brand/marshal.jpeg",
+  /** Drop portrait at public/brand/protocol.jpeg to show on leadership cards. */
+  protocol: "/brand/protocol.jpeg",
 } as const;
 
 export const SPEAKER_WELCOME = {
@@ -48,6 +52,18 @@ export const GOVERNANCE_LEADERSHIP: Leadership[] = [
     id: "l4",
     name: "Hon. Emmanuella Owusu Addo",
     role: "Deputy Clerk of the Senate",
+    department: "",
+  },
+  {
+    id: "l5",
+    name: "To be announced",
+    role: "Marshal of the Senate",
+    department: "",
+  },
+  {
+    id: "l6",
+    name: "To be announced",
+    role: "Director of Protocol",
     department: "",
   },
 ];

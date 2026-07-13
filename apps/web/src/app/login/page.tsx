@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { DEMO_USERS, roleLabel } from "@/lib/demo-users";
+import { PAGE_HEADER_BACKGROUND } from "@/lib/page-backgrounds";
 import { useAuth } from "@/providers/auth-provider";
 
 export default function LoginPage() {
@@ -35,20 +36,32 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col lg:flex-row">
-      <div className="institutional-gradient flex flex-1 flex-col justify-center px-8 py-12 text-white lg:px-16">
-        <Image
-          src="/brand/senate-logo.png"
-          alt="SCISA Senate"
-          width={96}
-          height={96}
-          className="rounded-full ring-4 ring-white/20"
+      <div className="relative flex flex-1 flex-col justify-center overflow-hidden px-8 py-12 text-white lg:px-16">
+        <div
+          className="absolute inset-0 bg-[#0a1738] bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url("${PAGE_HEADER_BACKGROUND}")` }}
+          aria-hidden
         />
-        <h1 className="mt-8 text-3xl font-bold">Senate Workspace</h1>
-        <p className="mt-3 max-w-md text-white/80">
-          {usingSupabase
-            ? "Deployed on Vercel with Supabase as the serverless database and auth, with no Render or NestJS backend."
-            : "Supabase not configured: using local demo mode. Add env vars from .env.example for production."}
-        </p>
+        <div className="absolute inset-0 bg-black/35" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-[var(--senate-blue)]/75 via-[var(--senate-blue)]/45 to-[#0a1738]/65"
+          aria-hidden
+        />
+        <div className="relative">
+          <Image
+            src="/brand/senate-logo.png"
+            alt="SCISA Senate"
+            width={96}
+            height={96}
+            className="rounded-full ring-4 ring-white/20"
+          />
+          <h1 className="mt-8 text-3xl font-bold">Senate Workspace</h1>
+          <p className="mt-3 max-w-md text-white/80">
+            {usingSupabase
+              ? "Deployed on Vercel with Supabase as the serverless database and auth, with no Render or NestJS backend."
+              : "Supabase not configured: using local demo mode. Add env vars from .env.example for production."}
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-1 items-center justify-center bg-background px-6 py-12">
