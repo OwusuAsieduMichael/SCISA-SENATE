@@ -106,7 +106,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Abraham Appiah",
   },
   {
-    filename: "Food Science Secretary(Benedicta Cobbina).jpeg",
+    filename: "Food Science Secretary(Benedicta Cobbina).png",
     portfolioLabel: "Food Science Secretary",
     displayName: "Benedicta Cobbina",
     governanceName: "Hon. Benedicta Akosua Gyebuah Cobbina",

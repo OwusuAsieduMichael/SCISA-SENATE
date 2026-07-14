@@ -421,7 +421,7 @@ const SENATOR_ROSTER_OVERRIDES: Record<
   { portfolio: string; constituency?: string; listFirst?: boolean }
 > = {
   "Hon. Michael Owusu Asiedu": {
-    portfolio: "Computer Science Secretary",
+    portfolio: "Clerk, Science and Innovation",
     constituency: "Computer Science",
     listFirst: true,
   },
