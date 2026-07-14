@@ -180,7 +180,6 @@ export function getSenatorPhotoByGovernanceName(name: string): string | undefine
 /** Constituency (department / year group / society) keyed by governance roster name. */
 const CONSTITUENCY_BY_GOVERNANCE_NAME: Record<string, string> = {
   "Hon. Oppong Palmer-Buckle Charles": "2nd Years",
-  "Hon. Palmer-Buckle Charles": "Faculty of Biosciences",
   "Hon. Sawudatu Ibrahim": "Mathematics",
   "Hon. Reginald Nyarko": "5th Years",
   "Hon. Kofi Ewusi Acquah": "6th Years",

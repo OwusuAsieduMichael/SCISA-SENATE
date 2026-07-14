@@ -113,11 +113,15 @@ export const newsItems = [
     title: "Senate Approves Digital Governance Portal Initiative",
     date: "2026-05-12",
     category: "Official Statement",
+    excerpt:
+      "The Senate ratified the digital governance infrastructure project to strengthen transparency and public access to legislative records.",
   },
   {
     id: "n2",
     title: "Committee Reports Published for Q1 2026",
     date: "2026-05-01",
     category: "Notice",
+    excerpt:
+      "Quarterly committee reports have been lodged with the Clerk and are available for review by members of the House.",
   },
 ];

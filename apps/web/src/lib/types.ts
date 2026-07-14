@@ -63,6 +63,8 @@ export type NewsItem = {
   date: string;
   category: string;
   excerpt?: string;
+  /** Optional path to an official press graphic under /public. */
+  imageSrc?: string;
 };
 
 export type CommitteeMember = {

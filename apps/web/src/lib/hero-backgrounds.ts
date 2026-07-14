@@ -11,15 +11,15 @@ export type HeroSlideStyle = {
   backgroundSize: string;
 };
 
-/** Portrait slides need top anchoring and less zoom so faces stay in frame. */
+/** Portrait slides keep top anchoring so faces stay in frame while covering the full hero. */
 export const HERO_SLIDE_STYLES: Partial<Record<string, HeroSlideStyle>> = {
   [encodeURI("/Background IMAGES/BACK2.jpg")]: {
     backgroundPosition: "center top",
-    backgroundSize: "auto 100%",
+    backgroundSize: "cover",
   },
   [encodeURI("/Background IMAGES/BACK4.jpg")]: {
     backgroundPosition: "center top",
-    backgroundSize: "auto 100%",
+    backgroundSize: "cover",
   },
 };
 

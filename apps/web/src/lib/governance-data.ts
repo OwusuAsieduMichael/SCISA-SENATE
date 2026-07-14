@@ -11,10 +11,8 @@ export const OFFICER_PHOTO_PATHS = {
   speaker: "/brand/speaker.jpeg",
   deputySpeaker: "/brand/deputy-speaker.jpeg",
   clerk: "/brand/clerk.jpeg",
-  /** Drop portrait at public/brand/marshal.jpeg to show on leadership cards. */
-  marshal: "/brand/marshal.jpeg",
-  /** Drop portrait at public/brand/protocol.jpeg to show on leadership cards. */
-  protocol: "/brand/protocol.jpeg",
+  marshal: "/brand/marshal.png",
+  protocol: "/brand/protocol.png",
 } as const;
 
 export const SPEAKER_WELCOME = {
@@ -56,15 +54,17 @@ export const GOVERNANCE_LEADERSHIP: Leadership[] = [
   },
   {
     id: "l5",
-    name: "To be announced",
+    name: "Hon. Bright Edem Amlalo",
     role: "Marshal of the Senate",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.marshal,
   },
   {
     id: "l6",
-    name: "To be announced",
-    role: "Director of Protocol",
+    name: "Hon. Ayariga Elyon Winnore",
+    role: "Protocol Head",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.protocol,
   },
 ];
 
@@ -104,7 +104,7 @@ export const GOVERNANCE_COMMITTEES: Committee[] = [
       "Reviews and recommends appointments to Senate offices, committees, and other governance positions.",
     members: [
       { name: "Hon. Jeffrey Owusu Acheaw", role: "Chairperson" },
-      { name: "Hon. Palmer-Buckle Charles", role: "Vice Chairperson" },
+      { name: "Hon. Oppong Palmer-Buckle Charles", role: "Vice Chairperson" },
       { name: "Hon. Genevieve Owusuwaa Karikari", role: "Clerk to the Committee" },
       { name: "Hon. Herbert Boadu Ayisi", role: "Member" },
       { name: "Hon. Dorian Esi Fynn", role: "Member" },
@@ -209,7 +209,7 @@ export const GOVERNANCE_COMMITTEES: Committee[] = [
       { name: "Hon. Elyon Winnore Ayariga", role: "Member" },
       { name: "Hon. Evans Kyeremanteng", role: "Ranking Member" },
       { name: "Hon. Derrick Appiah", role: "Member" },
-      { name: "Hon. Palmer-Buckle Charles", role: "Ranking Member" },
+      { name: "Hon. Oppong Palmer-Buckle Charles", role: "Ranking Member" },
     ],
   },
   {
