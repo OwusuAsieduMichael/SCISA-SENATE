@@ -16,19 +16,19 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Oppong Palmer-Buckle Charles",
   },
   {
-    filename: "3rd Year Rep & Mathematics Secretary(Sawudatu Ibrahim).jpeg",
+    filename: "3rd Year Rep & Mathematics Secretary(Sawudatu Ibrahim).png",
     portfolioLabel: "3rd Year Representative & Mathematics Secretary",
     displayName: "Sawudatu Ibrahim",
     governanceName: "Hon. Sawudatu Ibrahim",
   },
   {
-    filename: "5th Years Rep(Rginald Nyarko).jpeg",
+    filename: "5th Years Rep(Rginald Nyarko).png",
     portfolioLabel: "5th Years Representative",
     displayName: "Reginald Nyarko",
     governanceName: "Hon. Reginald Nyarko",
   },
   {
-    filename: "6th Years Rep(Kofi Owusu Acquah).jpeg",
+    filename: "6th Years Rep(Kofi Owusu Acquah).png",
     portfolioLabel: "6th Years Representative",
     displayName: "Kofi Owusu Acquah",
     governanceName: "Hon. Kofi Ewusi Acquah",
@@ -52,13 +52,13 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Nana Kwame Appiah Owusu",
   },
   {
-    filename: "Biological Science President(Patience Amevor Mensah).jpeg",
+    filename: "Biological Science President(Patience Amevor Mensah).png",
     portfolioLabel: "Biological Science President",
     displayName: "Patience Amevor Mensah",
     governanceName: "Hon. Patience Amevor Mensah",
   },
   {
-    filename: "Biological Science Secretary(Kponkpori Cecelia Jinche).jpeg",
+    filename: "Biological Science Secretary(Kponkpori Cecelia Jinche).png",
     portfolioLabel: "Biological Science Secretary",
     displayName: "Kponkpori Cecelia Jinche",
     governanceName: "Hon. Cecilia Kponkpori Jinche",
@@ -88,7 +88,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Michael Owusu Asiedu",
   },
   {
-    filename: "Environmental Science President((Appiah Derrick).jpeg",
+    filename: "Environmental Science President((Appiah Derrick).png",
     portfolioLabel: "Environmental Science President",
     displayName: "Appiah Derrick",
     governanceName: "Hon. Derrick Appiah",
@@ -100,7 +100,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Sam Jerry Joshua",
   },
   {
-    filename: "Food Science President(Appiah Abraham Atta Panyin).jpeg",
+    filename: "Food Science President(Appiah Abraham Atta Panyin).png",
     portfolioLabel: "Food Science President",
     displayName: "Appiah Abraham Atta Panyin",
     governanceName: "Hon. Abraham Appiah",
@@ -112,7 +112,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Benedicta Akosua Gyebuah Cobbina",
   },
   {
-    filename: "Mathematics President(Evans Kyeremanteng).jpeg",
+    filename: "Mathematics President(Evans Kyeremanteng).png",
     portfolioLabel: "Mathematics President",
     displayName: "Evans Kyeremanteng",
     governanceName: "Hon. Evans Kyeremanteng",
@@ -130,19 +130,19 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Ohene Blessing Yeboah",
   },
   {
-    filename: "Optometry Secreatry(Genevieve Owusuaa Kakari).jpeg",
+    filename: "Optometry Secreatry(Genevieve Owusuaa Kakari).png",
     portfolioLabel: "Optometry Secretary",
     displayName: "Genevieve Owusuaa Kakari",
     governanceName: "Hon. Genevieve Owusuwaa Karikari",
   },
   {
-    filename: "Physics President(Jeffery Oteng Afriyie).jpeg",
+    filename: "Physics President(Jeffery Oteng Afriyie).png",
     portfolioLabel: "Physics President",
     displayName: "Jeffery Oteng Afriyie",
     governanceName: "Hon. Jeffery Oteng Afriyie",
   },
   {
-    filename: "Physics Secretary(Dorian Esi Fynn).jpeg",
+    filename: "Physics Secretary(Dorian Esi Fynn).png",
     portfolioLabel: "Physics Secretary",
     displayName: "Dorian Esi Fynn",
     governanceName: "Hon. Dorian Esi Fynn",
@@ -154,10 +154,16 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
     governanceName: "Hon. Herbert Boadu Ayisi",
   },
   {
-    filename: "Statistics Secretary(Bernice Forson).jpeg",
+    filename: "Statistics Secretary(Bernice Forson).png",
     portfolioLabel: "Statistics Secretary",
     displayName: "Bernice Forson",
     governanceName: "Hon. Bernice Forson",
+  },
+  {
+    filename: "Year Rep Caucus Head(Jeffrey Owusu Acheaw).png",
+    portfolioLabel: "Year Rep Caucus Head",
+    displayName: "Jeffrey Owusu Acheaw",
+    governanceName: "Hon. Jeffrey Owusu Acheaw",
   },
 ];
 
@@ -193,7 +199,6 @@ const CONSTITUENCY_BY_GOVERNANCE_NAME: Record<string, string> = {
   "Hon. Isaac Nana Sam Mensah": "Computer Science",
   "Hon. Michael Owusu Asiedu": "Computer Science",
   "Hon. Derrick Appiah": "Environmental Science",
-  "Hon. Appiah Derrick": "Environmental Science",
   "Hon. Abraham Appiah": "Food Science",
   "Hon. Benedicta Akosua Gyebuah Cobbina": "Food Science",
   "Hon. Evans Kyeremanteng": "Mathematics",

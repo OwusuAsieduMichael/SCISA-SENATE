@@ -10,7 +10,8 @@ export const ACADEMIC_TERM = "2025 to 2026";
 export const OFFICER_PHOTO_PATHS = {
   speaker: "/brand/speaker.jpeg",
   deputySpeaker: "/brand/deputy-speaker.jpeg",
-  clerk: "/brand/clerk.jpeg",
+  clerk: "/brand/clerk.png",
+  deputyClerk: "/brand/deputy-clerk.png",
   marshal: "/brand/marshal.png",
   protocol: "/brand/protocol.png",
 } as const;
@@ -51,6 +52,7 @@ export const GOVERNANCE_LEADERSHIP: Leadership[] = [
     name: "Hon. Emmanuella Owusu Addo",
     role: "Deputy Clerk of the Senate",
     department: "",
+    imageSrc: OFFICER_PHOTO_PATHS.deputyClerk,
   },
   {
     id: "l5",
@@ -118,7 +120,7 @@ export const GOVERNANCE_COMMITTEES: Committee[] = [
       "Scrutinises the association budget, financial reports, and fiscal policy proposals laid before the Senate.",
     members: [
       { name: "Hon. Nana Kwame Appiah Owusu", role: "Chairperson" },
-      { name: "Hon. Appiah Derrick", role: "Vice Chairperson" },
+      { name: "Hon. Derrick Appiah", role: "Vice Chairperson" },
       { name: "Hon. Sawudatu Ibrahim", role: "Clerk to the Committee" },
       { name: "Hon. Benedicta Akosua Gyebuah Cobbina", role: "Ranking Member" },
       { name: "Hon. Genevieve Owusuwaa Karikari", role: "Ranking Member" },
