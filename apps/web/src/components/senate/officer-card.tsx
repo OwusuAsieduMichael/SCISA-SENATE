@@ -1,5 +1,5 @@
 import { OfficerPortrait } from "@/components/shared/officer-portrait";
-import { ACADEMIC_TERM } from "@/lib/governance-data";
+import { ACADEMIC_TERM, ACADEMIC_YEAR_SHORT } from "@/lib/governance-data";
 import type { Leadership } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +9,8 @@ type OfficerCardProps = {
 };
 
 export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
+  const department = officer.department?.trim() || undefined;
+
   return (
     <article
       className={cn(
@@ -20,8 +22,11 @@ export function OfficerCard({ officer, highlight = false }: OfficerCardProps) {
         name={officer.name}
         imageSrc={officer.imageSrc}
         subtitle={officer.role}
+        department={department}
+        yearRepresented={ACADEMIC_YEAR_SHORT}
         size="xl"
         variant="officer"
+        enlargeable
       />
       <h3 className="mt-5 text-base font-semibold leading-snug text-foreground">
         {officer.name}

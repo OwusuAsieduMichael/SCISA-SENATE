@@ -9,6 +9,8 @@ type OfficerPortraitProps = {
   name: string;
   imageSrc?: string;
   subtitle?: string;
+  department?: string;
+  yearRepresented?: string;
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   variant?: "default" | "officer" | "muted";
   className?: string;
@@ -21,27 +23,20 @@ export function OfficerPortrait({
   name,
   imageSrc,
   subtitle,
+  department,
+  yearRepresented,
   size = "md",
   variant = "default",
   className,
   priority = false,
   enlargeable,
 }: OfficerPortraitProps) {
-  if (!imageSrc) {
-    return (
-      <PersonAvatar
-        name={name}
-        size={size === "2xl" ? "xl" : size}
-        variant={variant}
-        className={className}
-      />
-    );
-  }
-
   const canEnlarge =
     enlargeable ?? (size === "lg" || size === "xl" || size === "2xl");
 
-  const portrait = (
+  const avatarSize = size === "2xl" ? "xl" : size;
+
+  const portrait = imageSrc ? (
     <PassportPortrait
       src={imageSrc}
       alt={name}
@@ -54,6 +49,13 @@ export function OfficerPortrait({
         className,
       )}
     />
+  ) : (
+    <PersonAvatar
+      name={name}
+      size={avatarSize === "2xl" ? "xl" : avatarSize}
+      variant={variant}
+      className={className}
+    />
   );
 
   if (!canEnlarge) return portrait;
@@ -63,6 +65,8 @@ export function OfficerPortrait({
       name={name}
       imageSrc={imageSrc}
       subtitle={subtitle}
+      department={department}
+      yearRepresented={yearRepresented}
       priority={priority}
     >
       {portrait}

@@ -1,31 +1,39 @@
 import { OfficerPortrait } from "@/components/shared/officer-portrait";
-import { PersonAvatar } from "@/components/shared/person-avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ACADEMIC_YEAR_SHORT } from "@/lib/governance-data";
 import type { Senator } from "@/lib/types";
 
 type SenatorCardProps = {
   senator: Senator;
 };
 
+function senatorDepartment(senator: Senator) {
+  const value = senator.department?.trim() || senator.constituency?.trim();
+  return value || undefined;
+}
+
 export function SenatorCard({ senator }: SenatorCardProps) {
+  const department = senatorDepartment(senator);
+  const yearRepresented = ACADEMIC_YEAR_SHORT;
+
   return (
     <Card className="h-full overflow-hidden">
       <div className="h-1 bg-gradient-to-r from-primary/80 via-[var(--institutional-gold)] to-primary/80" />
       <CardHeader className="space-y-4">
-        {senator.imageSrc ? (
-          <OfficerPortrait
-            name={senator.name}
-            imageSrc={senator.imageSrc}
-            subtitle={senator.portfolio}
-            size="lg"
-            variant="default"
-            enlargeable
-          />
-        ) : (
-          <PersonAvatar name={senator.name} size="lg" variant="default" />
-        )}
+        <OfficerPortrait
+          name={senator.name}
+          imageSrc={senator.imageSrc}
+          subtitle={senator.portfolio}
+          department={department}
+          yearRepresented={yearRepresented}
+          size="lg"
+          variant="default"
+          enlargeable
+        />
         <div>
-          <CardTitle className="text-base leading-snug sm:text-lg">{senator.name}</CardTitle>
+          <CardTitle className="text-base leading-snug sm:text-lg">
+            {senator.name}
+          </CardTitle>
           <p className="mt-1.5 text-sm font-medium text-destructive">
             {senator.portfolio}
           </p>

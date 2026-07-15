@@ -7,6 +7,9 @@ import {
 /** Academic session label for public copy (no en dash). */
 export const ACADEMIC_TERM = "2025 to 2026";
 
+/** Short year label for senator profile cards and lightboxes. */
+export const ACADEMIC_YEAR_SHORT = "2025-26";
+
 export const OFFICER_PHOTO_PATHS = {
   speaker: "/brand/speaker.jpeg",
   deputySpeaker: "/brand/deputy-speaker.jpeg",
