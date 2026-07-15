@@ -115,7 +115,7 @@ export default function HomePage() {
             Your voice in governance
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-white/80 sm:mt-3 sm:text-base">
-            Submit petitions, review session archives, and access constitutional
+            Submit petitions, explore the gallery, and access constitutional
             documents. Transparency is the foundation of student representation.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-8 sm:gap-4">

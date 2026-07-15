@@ -90,7 +90,7 @@ export function NavMenuDropdown({
         aria-expanded={open}
         aria-haspopup="true"
         className={cn(
-          "inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white",
+          "inline-flex items-center gap-1 whitespace-nowrap rounded-md px-2.5 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white xl:px-3",
           isActive && "bg-white/10 text-white",
         )}
       >
