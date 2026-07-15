@@ -1,6 +1,6 @@
 import type { AuthUser, UserRole } from "@/lib/types";
 
-/** Demo accounts for Vercel testing — no server required */
+/** Demo accounts for Vercel testing; no server required */
 export const DEMO_USERS: Array<AuthUser & { password: string }> = [
   {
     id: "u-admin",

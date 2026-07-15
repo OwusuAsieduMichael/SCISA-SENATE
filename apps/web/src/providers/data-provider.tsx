@@ -96,18 +96,34 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
 
   const addPetition = useCallback(
     async (input: Omit<Petition, "id" | "status" | "createdAt">) => {
-      if (usingSupabase) {
-        await repo.insertPetition(input);
-        await repo.insertAudit(`Petition: ${input.category}`, input.name);
-        await refresh();
-        return;
-      }
       const petition: Petition = {
         ...input,
         id: uid("petition"),
         status: "Pending",
         createdAt: new Date().toISOString().slice(0, 10),
       };
+
+      if (usingSupabase) {
+        try {
+          await repo.insertPetition(input);
+          try {
+            await repo.insertAudit(`Petition: ${input.category}`, input.name);
+          } catch {
+            // Audit is secondary; do not block a successful petition.
+          }
+          try {
+            await refresh();
+          } catch {
+            // Petition already saved remotely.
+          }
+          return;
+        } catch {
+          // Keep the submission if the remote write fails (offline / RLS / network).
+          persistLocal({ ...data, petitions: [petition, ...data.petitions] });
+          return;
+        }
+      }
+
       persistLocal({ ...data, petitions: [petition, ...data.petitions] });
     },
     [usingSupabase, data, persistLocal, refresh],

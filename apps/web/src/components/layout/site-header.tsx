@@ -47,10 +47,11 @@ export function SiteHeader() {
   const mobileMenu =
     mounted && open
       ? createPortal(
-          <div className="lg:hidden">
+          <div className="lg:hidden" role="presentation">
+            {/* Above sticky header so taps are never blocked */}
             <button
               type="button"
-              className="fixed inset-0 z-[100] bg-black/50"
+              className="fixed inset-0 z-[200] bg-black/50"
               onClick={closeMenu}
               aria-label="Close menu"
             />
@@ -59,20 +60,20 @@ export function SiteHeader() {
               role="dialog"
               aria-modal="true"
               aria-label="Main navigation"
-              className="fixed inset-y-0 left-0 z-[101] flex w-[min(20rem,88vw)] flex-col border-r border-white/10 bg-primary text-primary-foreground shadow-2xl"
+              className="fixed top-14 right-0 bottom-0 z-[210] flex w-[min(20rem,88vw)] flex-col border-l border-white/10 bg-primary text-primary-foreground shadow-2xl sm:top-16"
             >
-              <div className="flex h-14 shrink-0 items-center justify-between border-b border-white/10 px-4 sm:h-16">
+              <div className="flex h-14 shrink-0 items-center justify-between border-b border-white/10 px-4">
                 <span className="text-sm font-semibold text-white">Navigation</span>
                 <button
                   type="button"
-                  className="inline-flex size-10 items-center justify-center rounded-md text-white hover:bg-white/10"
+                  className="inline-flex size-11 touch-manipulation items-center justify-center rounded-md text-white hover:bg-white/10"
                   onClick={closeMenu}
                   aria-label="Close menu"
                 >
                   <X className="size-5" aria-hidden />
                 </button>
               </div>
-              <div className="flex-1 overflow-y-auto px-3 py-3">
+              <div className="flex-1 overflow-y-auto overscroll-contain px-3 py-3">
                 <div className="flex flex-col gap-0.5">
                   {mainNav.map((item) =>
                     isNavDropdown(item) ? (
@@ -89,7 +90,7 @@ export function SiteHeader() {
                         href={item.href}
                         onClick={closeMenu}
                         className={cn(
-                          "rounded-md px-3 py-2 text-sm font-medium text-white/90 hover:bg-white/10",
+                          "rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10",
                           pathname === item.href && "bg-white/10 text-white",
                         )}
                       >
@@ -134,16 +135,26 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-[110] border-b border-white/10 bg-primary text-primary-foreground shadow-md">
+      <header
+        className={cn(
+          "sticky top-0 border-b border-white/10 bg-primary text-primary-foreground shadow-md",
+          // When the menu is open, keep the bar (and hamburger) above the dim overlay
+          open ? "z-[220]" : "z-[110]",
+        )}
+      >
         <div className="gold-accent-line w-full" />
-        <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex min-w-0 shrink items-center gap-2 sm:gap-3">
+        <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 overflow-visible px-3 sm:h-16 sm:gap-3 sm:px-6 lg:gap-4 lg:px-8">
+          <Link
+            href="/"
+            className="flex min-w-0 flex-1 items-center gap-2 sm:max-w-none sm:gap-3 lg:flex-none"
+            onClick={closeMenu}
+          >
             <Image
               src="/brand/senate-logo.png"
               alt="SCISA Senate"
               width={44}
               height={44}
-              className="size-9 rounded-full ring-2 ring-white/20 sm:size-11"
+              className="size-9 shrink-0 rounded-full ring-2 ring-white/20 sm:size-11"
             />
             <div className="min-w-0 leading-tight sm:hidden">
               <p className="truncate text-[10px] font-medium uppercase tracking-wide text-white/70">
@@ -151,11 +162,11 @@ export function SiteHeader() {
               </p>
               <p className="truncate text-xs font-semibold text-white">Official Portal</p>
             </div>
-            <div className="hidden leading-tight sm:block">
+            <div className="hidden min-w-0 leading-tight sm:block">
               <p className="text-[10px] font-medium uppercase tracking-widest text-white/70">
                 Official Portal
               </p>
-              <p className="text-sm font-semibold text-white">SCISA Senate</p>
+              <p className="truncate text-sm font-semibold text-white">SCISA Senate</p>
             </div>
           </Link>
 
@@ -179,17 +190,18 @@ export function SiteHeader() {
             )}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
             <Link
               href="/petitions"
               className={cn(
                 buttonVariants({ size: "sm" }),
-                "hidden bg-destructive text-white hover:bg-destructive/90 sm:inline-flex",
+                "hidden bg-destructive text-white hover:bg-destructive/90 lg:inline-flex",
               )}
             >
               Submit Petition
             </Link>
-            <div className="hidden shrink-0 items-center gap-1.5 sm:flex sm:gap-2">
+            {/* Desktop only: logos stay in the bar. On mobile/tablet they appear in the drawer. */}
+            <div className="hidden shrink-0 items-center gap-2 lg:flex">
               <a
                 href="https://www.knust.edu.gh"
                 target="_blank"
@@ -202,7 +214,7 @@ export function SiteHeader() {
                   alt="KNUST"
                   width={40}
                   height={40}
-                  className="size-9 rounded-full bg-white object-contain p-1 ring-2 ring-white/20 sm:size-10"
+                  className="size-10 rounded-full bg-white object-contain p-1 ring-2 ring-white/20"
                 />
               </a>
               <Link href="/" className="shrink-0" aria-label="KNUST SCISA home">
@@ -211,22 +223,32 @@ export function SiteHeader() {
                   alt="KNUST SCISA"
                   width={40}
                   height={40}
-                  className="size-9 rounded-full bg-white object-contain p-0.5 ring-2 ring-white/20 sm:size-10"
+                  className="size-10 rounded-full bg-white object-contain p-0.5 ring-2 ring-white/20"
                 />
               </Link>
             </div>
             <button
               type="button"
-              className="inline-flex size-10 touch-manipulation items-center justify-center rounded-md text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] lg:hidden"
-              onClick={toggleMenu}
+              className={cn(
+                "inline-flex size-11 min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-md text-white",
+                "hover:bg-white/10 active:bg-white/15",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)]",
+                "lg:hidden",
+                open && "bg-white/10",
+              )}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                toggleMenu();
+              }}
               aria-expanded={open}
               aria-controls={menuId}
               aria-label={open ? "Close menu" : "Open menu"}
             >
               {open ? (
-                <X className="size-5" aria-hidden />
+                <X className="size-6 pointer-events-none" aria-hidden />
               ) : (
-                <Menu className="size-5" aria-hidden />
+                <Menu className="size-6 pointer-events-none" aria-hidden />
               )}
             </button>
           </div>

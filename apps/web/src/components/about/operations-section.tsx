@@ -83,7 +83,7 @@ export function OperationsSection() {
         id="how-it-works-heading"
         eyebrow="Procedure"
         title="How the Senate operates"
-        description="Sittings follow published notice, structured debate, and recorded votes — with quorum rules that keep the House legitimate."
+        description="Sittings follow published notice, structured debate, and recorded votes, with quorum rules that keep the House legitimate."
       />
 
       <Stagger className="grid gap-5" stagger={0.08}>

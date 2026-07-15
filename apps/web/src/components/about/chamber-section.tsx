@@ -114,7 +114,7 @@ export function ChamberSection() {
         id="who-sits-heading"
         eyebrow="Membership"
         title="Who makes up the Senate"
-        description="The House is a representative chamber — leadership, departmental officers, year voices, and international students."
+        description="The House is a representative chamber: leadership, departmental officers, year voices, and international students."
       />
 
       <Stagger className="grid gap-5 lg:grid-cols-2 lg:gap-6" stagger={0.08}>

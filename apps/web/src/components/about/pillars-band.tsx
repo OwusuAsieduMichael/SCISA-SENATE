@@ -58,7 +58,7 @@ export function PillarsBand() {
       <Reveal delay={0.15} className="mt-6 sm:mt-8">
         <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
           Bound by the Constitution and Standing Orders, the Senate turns student concerns into
-          deliberated, recorded decisions — not informal consensus.
+          deliberated, recorded decisions, not informal consensus.
         </p>
       </Reveal>
     </section>

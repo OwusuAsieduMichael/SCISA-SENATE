@@ -11,7 +11,7 @@ export function DecisionJourney() {
         id="decisions-heading"
         eyebrow="From concern to action"
         title="How decisions are made"
-        description="A student issue becomes Senate business through motion, debate, and vote — then a resolution that can be implemented."
+        description="A student issue becomes Senate business through motion, debate, and vote, then a resolution that can be implemented."
       />
 
       <div className="rounded-2xl border border-border/70 bg-card/90 px-5 py-8 shadow-sm backdrop-blur-sm sm:px-8 sm:py-10">

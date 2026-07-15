@@ -1,6 +1,6 @@
 /**
  * Public About copy distilled from the SCISA Senate Standing Orders.
- * Rewritten for the web — not verbatim legal text.
+ * Rewritten for the web, not verbatim legal text.
  */
 
 export const ABOUT_HERO = {
@@ -38,7 +38,7 @@ export const SENATE_PILLARS = [
     id: "accountability",
     title: "Accountability",
     description:
-      "Proceedings are recorded and bound by Standing Orders — power exercised in good order.",
+      "Proceedings are recorded and bound by Standing Orders, with power exercised in good order.",
   },
 ] as const;
 
@@ -61,7 +61,7 @@ export const COMPOSITION_GROUPS = [
   {
     id: "year-reps",
     title: "Year Representatives",
-    description: "Elected voices for Years 1–6 across the College of Science",
+    description: "Elected voices for Years 1 to 6 across the College of Science",
   },
   {
     id: "international",
@@ -167,11 +167,11 @@ export const CORE_VALUES = [
 export const MISSION_VISION = {
   mission: {
     title: "Mission",
-    body: "To legislate, represent, and oversee with fairness — advancing the welfare of science students through orderly debate, credible records, and decisions grounded in the Constitution and Standing Orders.",
+    body: "To legislate, represent, and oversee with fairness, advancing the welfare of science students through orderly debate, credible records, and decisions grounded in the Constitution and Standing Orders.",
   },
   vision: {
     title: "Vision",
-    body: "A Senate recognised for integrity, clarity, and student-centred leadership — the trusted parliamentary voice of science students at KNUST.",
+    body: "A Senate recognised for integrity, clarity, and student-centred leadership: the trusted parliamentary voice of science students at KNUST.",
   },
 } as const;
 

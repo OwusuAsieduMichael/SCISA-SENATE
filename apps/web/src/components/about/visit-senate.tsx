@@ -23,7 +23,7 @@ function ZigzagDivider() {
 export function VisitSenate() {
   return (
     <section aria-labelledby="visit-senate-heading" className="bg-background">
-      {/* Banner — parliamentary “Visit” format, SCISA brand colour */}
+      {/* Banner: parliamentary Visit format, SCISA brand colour */}
       <div className="bg-[var(--senate-blue)]">
         <div className="mx-auto max-w-7xl px-3 pt-8 pb-5 sm:px-6 sm:pt-10 sm:pb-6 lg:px-8">
           <Reveal y={12}>

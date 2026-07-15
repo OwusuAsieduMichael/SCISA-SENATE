@@ -11,7 +11,7 @@ export function MissionVision() {
         id="mission-vision-heading"
         eyebrow="Purpose"
         title="Mission & vision"
-        description="Why the Senate exists — and what it aspires to be for every science student."
+        description="Why the Senate exists, and what it aspires to be for every science student."
       />
 
       <Stagger className="grid gap-5 md:grid-cols-2 md:gap-0" stagger={0.1}>

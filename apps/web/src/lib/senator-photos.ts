@@ -1,4 +1,4 @@
-/** Senator portrait files in public/senators — portfolio label + name in parentheses. */
+/** Senator portrait files in public/senators: portfolio label + name in parentheses. */
 
 export type SenatorPhotoEntry = {
   filename: string;

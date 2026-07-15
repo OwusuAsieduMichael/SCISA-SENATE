@@ -33,7 +33,7 @@ export function ValuesStrip() {
         id="core-values-heading"
         eyebrow="Principles"
         title="Core values"
-        description="Affirmed in the Standing Orders — the standards that guide how Senators serve and how the House conducts its business."
+        description="Affirmed in the Standing Orders: the standards that guide how Senators serve and how the House conducts its business."
       />
 
       <Stagger className="flex flex-wrap gap-2.5 sm:gap-3" stagger={0.04}>

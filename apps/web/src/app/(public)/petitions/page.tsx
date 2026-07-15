@@ -9,7 +9,7 @@ export default function PetitionsPage() {
     <>
       <PageHeader
         title="Student Petition Portal"
-        description="Submit complaints, policy ideas, and welfare concerns for Senate review."
+        description="Submit complaints, policy ideas, and welfare concerns for formal Senate review. Leadership aims to respond within one week."
       />
       <ContentSection>
         <PetitionForm />

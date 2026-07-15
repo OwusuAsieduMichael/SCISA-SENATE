@@ -14,7 +14,7 @@ export default function BillsPage() {
     <>
       <PageHeader
         title="Bills & Motions"
-        description="Follow the legislative pathway — and track SCISA bills and motions from draft through debate, voting, and final outcome."
+        description="Follow the legislative pathway, and track SCISA bills and motions from draft through debate, voting, and final outcome."
       />
 
       <ContentSection>

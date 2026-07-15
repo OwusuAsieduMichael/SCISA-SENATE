@@ -84,7 +84,7 @@ export function LegislativeProcess() {
           </p>
         </figure>
 
-        {/* Phase navigator — progressive disclosure */}
+        {/* Phase navigator: progressive disclosure */}
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             Stages at a glance
