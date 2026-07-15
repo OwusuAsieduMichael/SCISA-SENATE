@@ -13,8 +13,18 @@ type PressImageLightboxProps = {
   caption?: string;
   priority?: boolean;
   className?: string;
+  /** Label shown on hover / for screen readers when expanding */
+  actionLabel?: string;
+  /** Dialog content max width */
+  size?: "md" | "lg" | "xl";
   children: ReactNode;
 };
+
+const SIZE_CLASS = {
+  md: "max-w-3xl",
+  lg: "max-w-5xl",
+  xl: "max-w-6xl",
+} as const;
 
 export function PressImageLightbox({
   title,
@@ -23,6 +33,8 @@ export function PressImageLightbox({
   caption,
   priority = false,
   className,
+  actionLabel = "View release",
+  size = "md",
   children,
 }: PressImageLightboxProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -64,13 +76,13 @@ export function PressImageLightbox({
           "group relative block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] focus-visible:ring-offset-2",
           className,
         )}
-        aria-label={`Open full briefing: ${title}`}
+        aria-label={`${actionLabel}: ${title}`}
       >
         {children}
         <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
         <span className="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-md bg-[var(--senate-blue)]/90 px-2.5 py-1.5 text-[11px] font-semibold tracking-wide text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 sm:text-xs">
           <Expand className="size-3.5" aria-hidden />
-          View release
+          {actionLabel}
         </span>
       </button>
 
@@ -82,7 +94,10 @@ export function PressImageLightbox({
         }}
       >
         <div
-          className="relative flex max-h-[min(92vh,960px)] w-full max-w-3xl flex-col overflow-hidden rounded-lg border border-white/10 bg-[#0a1738] shadow-2xl"
+          className={cn(
+            "relative flex max-h-[min(92vh,960px)] w-full flex-col overflow-hidden rounded-lg border border-white/10 bg-[#0a1738] shadow-2xl",
+            SIZE_CLASS[size],
+          )}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">

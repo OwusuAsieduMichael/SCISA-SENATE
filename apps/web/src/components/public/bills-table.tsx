@@ -49,9 +49,6 @@ export function BillsTable() {
           </tbody>
         </table>
       </div>
-      <p className="mt-6 text-sm text-muted-foreground">
-        Workflow: Draft → Review → Debate → Voting → Passed / Rejected
-      </p>
     </>
   );
 }

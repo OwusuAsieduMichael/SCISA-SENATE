@@ -107,21 +107,23 @@ export function SiteHeader() {
                   >
                     Submit Petition
                   </Link>
-                  <Link
-                    href="/"
-                    onClick={closeMenu}
-                    className="mt-3 flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-2.5"
-                    aria-label="KNUST SCISA home"
-                  >
+                  <div className="mt-3 flex items-center justify-center gap-3 rounded-lg border border-white/15 bg-white/5 py-2.5">
+                    <Image
+                      src="/brand/knust-logo.png"
+                      alt="KNUST"
+                      width={32}
+                      height={32}
+                      className="size-8 rounded-full bg-white object-contain p-1"
+                    />
                     <Image
                       src="/brand/scisa-logo.png"
                       alt="KNUST SCISA"
                       width={32}
                       height={32}
-                      className="size-8 rounded-full bg-white p-0.5"
+                      className="size-8 rounded-full bg-white object-contain p-0.5"
                     />
-                    <span className="text-xs font-medium text-white/90">KNUST SCISA</span>
-                  </Link>
+                    <span className="text-xs font-medium text-white/90">KNUST · SCISA</span>
+                  </div>
                 </div>
               </div>
             </nav>
@@ -187,19 +189,32 @@ export function SiteHeader() {
             >
               Submit Petition
             </Link>
-            <Link
-              href="/"
-              className="hidden shrink-0 sm:block"
-              aria-label="KNUST SCISA home"
-            >
-              <Image
-                src="/brand/scisa-logo.png"
-                alt="KNUST SCISA"
-                width={40}
-                height={40}
-                className="size-9 rounded-full bg-white p-0.5 ring-2 ring-white/20 sm:size-10"
-              />
-            </Link>
+            <div className="hidden shrink-0 items-center gap-1.5 sm:flex sm:gap-2">
+              <a
+                href="https://www.knust.edu.gh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0"
+                aria-label="Kwame Nkrumah University of Science and Technology"
+              >
+                <Image
+                  src="/brand/knust-logo.png"
+                  alt="KNUST"
+                  width={40}
+                  height={40}
+                  className="size-9 rounded-full bg-white object-contain p-1 ring-2 ring-white/20 sm:size-10"
+                />
+              </a>
+              <Link href="/" className="shrink-0" aria-label="KNUST SCISA home">
+                <Image
+                  src="/brand/scisa-logo.png"
+                  alt="KNUST SCISA"
+                  width={40}
+                  height={40}
+                  className="size-9 rounded-full bg-white object-contain p-0.5 ring-2 ring-white/20 sm:size-10"
+                />
+              </Link>
+            </div>
             <button
               type="button"
               className="inline-flex size-10 touch-manipulation items-center justify-center rounded-md text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--institutional-gold)] lg:hidden"
