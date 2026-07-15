@@ -34,7 +34,8 @@ export function OfficerPortrait({
   const canEnlarge =
     enlargeable ?? (size === "lg" || size === "xl" || size === "2xl");
 
-  const avatarSize = size === "2xl" ? "xl" : size;
+  const avatarSize: "sm" | "md" | "lg" | "xl" =
+    size === "2xl" || size === "xl" ? "xl" : size;
 
   const portrait = imageSrc ? (
     <PassportPortrait
@@ -52,7 +53,7 @@ export function OfficerPortrait({
   ) : (
     <PersonAvatar
       name={name}
-      size={avatarSize === "2xl" ? "xl" : avatarSize}
+      size={avatarSize}
       variant={variant}
       className={className}
     />
