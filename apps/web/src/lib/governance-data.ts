@@ -460,6 +460,10 @@ const SENATOR_ROSTER_OVERRIDES: Record<
     constituency: "Environmental Science",
     department: "Environmental Science",
   },
+  "Hon. Jeffrey Owusu Acheaw": {
+    constituency: "4th Years",
+    department: "Biological Science",
+  },
   "Hon. Elyon Winnore Ayariga": {
     constituency: "Optometry",
     department: "Optometry",

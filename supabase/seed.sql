@@ -53,7 +53,7 @@ insert into public.senators (id, name, department, portfolio, term, committees) 
   ('sen-herbert-boadu-ayisi', 'Hon. Herbert Boadu Ayisi', '', 'Chairperson, Academics', '2025 to 2026', array['Academics','Appointment','Welfare and Health']),
   ('sen-isaac-nana-sam-mensah', 'Hon. Isaac Nana Sam Mensah', '', 'Ranking Member, Privileges', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
   ('sen-jeffery-oteng-afriyie', 'Hon. Jeffery Oteng Afriyie', '', 'Chairperson, Science and Innovation', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Media and Publicity','Science and Innovation']),
-  ('sen-jeffrey-owusu-acheaw', 'Hon. Jeffrey Owusu Acheaw', '', 'Chairperson, Appointment', '2025 to 2026', array['Appointment','Business','Privileges']),
+  ('sen-jeffrey-owusu-acheaw', 'Hon. Jeffrey Owusu Acheaw', 'Biological Science', 'Chairperson, Appointment', '2025 to 2026', array['Appointment','Business','Privileges']),
   ('sen-jevillin-gyedu-owusuaa', 'Hon. Jevillin Gyedu Owusuaa', '', 'Clerk to the Committee, Media and Publicity', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
   ('sen-kindly-osei-bediako', 'Hon. Kindly Osei Bediako', '', 'Clerk to the Committee, Welfare and Health', '2025 to 2026', array['Budget and Finance','Welfare and Health']),
   ('sen-kofi-ewusi-acquah', 'Hon. Kofi Ewusi Acquah', 'Optometry', 'Member, Welfare and Health', '2025 to 2026', array['Media and Publicity','Welfare and Health']),

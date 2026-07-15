@@ -161,7 +161,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
   },
   {
     filename: "Year Rep Caucus Head(Jeffrey Owusu Acheaw).png",
-    portfolioLabel: "Year Rep Caucus Head",
+    portfolioLabel: "4th Years Representative & Year Rep Caucus Head",
     displayName: "Jeffrey Owusu Acheaw",
     governanceName: "Hon. Jeffrey Owusu Acheaw",
   },
@@ -212,7 +212,7 @@ const CONSTITUENCY_BY_GOVERNANCE_NAME: Record<string, string> = {
   "Hon. Dorian Esi Fynn": "Physics",
   "Hon. Herbert Boadu Ayisi": "Statistics",
   "Hon. Bernice Forson": "Statistics",
-  "Hon. Jeffrey Owusu Acheaw": "Year Representatives",
+  "Hon. Jeffrey Owusu Acheaw": "4th Years",
 };
 
 export function getSenatorConstituencyByGovernanceName(name: string): string | undefined {
