@@ -47,7 +47,7 @@ insert into public.senators (id, name, department, portfolio, term, committees) 
   ('sen-emmanuella-owusu-addo', 'Hon. Emmanuella Owusu Addo', 'Optometry', 'Deputy Clerk, Business', '2025 to 2026', array['Business','Standing Orders']),
   ('sen-erica-bofah-boateng', 'Hon. Erica Bofah Boateng', '', 'Vice Chairperson, Welfare and Health', '2025 to 2026', array['Welfare and Health']),
   ('sen-eunice-deladem-sosoo', 'Hon. Eunice Deladem Sosoo', 'Biochemistry', 'Clerk, Business', '2025 to 2026', array['Business','Privileges','Standing Orders']),
-  ('sen-evans-kyeremanteng', 'Hon. Evans Kyeremanteng', '', 'Vice Chairperson, Academics', '2025 to 2026', array['Academics','Business','Standing Orders']),
+  ('sen-evans-kyeremanteng', 'Hon. Evans Kyeremanteng', 'Mathematics', 'Presidential Caucus Head & Vice Chairperson, Academics', '2025 to 2026', array['Academics','Business','Standing Orders']),
   ('sen-ezekiel-kocraft', 'Hon. Ezekiel Kocraft', '', 'Vice Chairperson, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs']),
   ('sen-genevieve-owusuwaa-karikari', 'Hon. Genevieve Owusuwaa Karikari', '', 'Clerk to the Committee, Appointment', '2025 to 2026', array['Appointment','Budget and Finance','Business']),
   ('sen-herbert-boadu-ayisi', 'Hon. Herbert Boadu Ayisi', '', 'Chairperson, Academics', '2025 to 2026', array['Academics','Appointment','Welfare and Health']),

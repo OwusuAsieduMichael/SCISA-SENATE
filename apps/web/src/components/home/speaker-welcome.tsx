@@ -1,5 +1,10 @@
 import { OfficerPortrait } from "@/components/shared/officer-portrait";
-import { ACADEMIC_TERM, SPEAKER_WELCOME, getSpeaker } from "@/lib/governance-data";
+import {
+  ACADEMIC_TERM,
+  ACADEMIC_YEAR_SHORT,
+  SPEAKER_WELCOME,
+  getSpeaker,
+} from "@/lib/governance-data";
 
 export function SpeakerWelcome() {
   const speaker = getSpeaker();
@@ -13,8 +18,11 @@ export function SpeakerWelcome() {
             name={speaker.name}
             imageSrc={speaker.imageSrc}
             subtitle={speaker.role}
+            department={speaker.department || undefined}
+            yearRepresented={ACADEMIC_YEAR_SHORT}
             size="2xl"
             variant="officer"
+            enlargeable
             priority
             className="!size-24 shadow-md sm:!size-28 lg:!size-32"
           />

@@ -464,6 +464,11 @@ const SENATOR_ROSTER_OVERRIDES: Record<
     constituency: "4th Years",
     department: "Biological Science",
   },
+  "Hon. Evans Kyeremanteng": {
+    constituency: "Mathematics",
+    department: "Mathematics",
+    portfolio: "Presidential Caucus Head & Vice Chairperson, Academics",
+  },
   "Hon. Elyon Winnore Ayariga": {
     constituency: "Optometry",
     department: "Optometry",

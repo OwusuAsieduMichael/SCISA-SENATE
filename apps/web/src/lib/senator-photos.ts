@@ -113,7 +113,7 @@ const SENATOR_PHOTO_ENTRIES: SenatorPhotoEntry[] = [
   },
   {
     filename: "Mathematics President(Evans Kyeremanteng).png",
-    portfolioLabel: "Mathematics President",
+    portfolioLabel: "Presidential Caucus Head & Mathematics President",
     displayName: "Evans Kyeremanteng",
     governanceName: "Hon. Evans Kyeremanteng",
   },
