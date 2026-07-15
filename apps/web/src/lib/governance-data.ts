@@ -33,42 +33,42 @@ export const GOVERNANCE_LEADERSHIP: Leadership[] = [
     id: "l1",
     name: "Rt. Hon. Henry Oduro Ntiamoah",
     role: "Speaker of the Senate",
-    department: "",
+    department: "Optometry",
     imageSrc: OFFICER_PHOTO_PATHS.speaker,
   },
   {
     id: "l2",
     name: "Hon. Nathaniel Bannor Amponsah",
     role: "Deputy Speaker",
-    department: "",
+    department: "Actuarial Science",
     imageSrc: OFFICER_PHOTO_PATHS.deputySpeaker,
   },
   {
     id: "l3",
     name: "Hon. Eunice Deladem Sosoo",
     role: "Clerk of the Senate",
-    department: "",
+    department: "Biochemistry",
     imageSrc: OFFICER_PHOTO_PATHS.clerk,
   },
   {
     id: "l4",
     name: "Hon. Emmanuella Owusu Addo",
     role: "Deputy Clerk of the Senate",
-    department: "",
+    department: "Optometry",
     imageSrc: OFFICER_PHOTO_PATHS.deputyClerk,
   },
   {
     id: "l5",
     name: "Hon. Bright Edem Amlalo",
     role: "Marshal of the Senate",
-    department: "",
+    department: "Theoretical & Applied Biology",
     imageSrc: OFFICER_PHOTO_PATHS.marshal,
   },
   {
     id: "l6",
-    name: "Hon. Ayariga Elyon Winnore",
+    name: "Hon. Elyon Winnore Ayariga",
     role: "Protocol Head",
-    department: "",
+    department: "Optometry",
     imageSrc: OFFICER_PHOTO_PATHS.protocol,
   },
 ];
@@ -392,8 +392,16 @@ export function buildSenatorsFromCommittees(committees: Committee[]): Senator[] 
 
 export const GOVERNANCE_SENATORS = buildSenatorsFromCommittees(GOVERNANCE_COMMITTEES);
 
-const OFFICER_NAMES = new Set(
-  GOVERNANCE_LEADERSHIP.map((officer) => officer.name),
+/**
+ * Chair officers listed only under Leadership of the House.
+ * Protocol Head and Marshal also sit as Members (e.g. Standing Orders) and
+ * appear in both the officer grid and the Members of the Senate roster.
+ */
+const OFFICERS_EXCLUDED_FROM_MEMBERS = new Set(
+  GOVERNANCE_LEADERSHIP.filter((officer) => {
+    const role = officer.role.toLowerCase();
+    return role.includes("speaker") || role.includes("clerk");
+  }).map((officer) => officer.name),
 );
 
 /** Presiding officers shown before the general senator roster. */
@@ -414,27 +422,59 @@ export function getOfficerPhotoByName(name: string): string | undefined {
 }
 
 function withSenatorPhoto(senator: Senator): Senator {
-  const imageSrc = getSenatorPhotoByGovernanceName(senator.name);
+  const imageSrc =
+    getOfficerPhotoByName(senator.name) ??
+    getSenatorPhotoByGovernanceName(senator.name);
   return imageSrc ? { ...senator, imageSrc } : senator;
 }
 
-/** Portfolio labels and display order for members roster. */
+/** Portfolio labels, department/constituency, and display order for members roster. */
 const SENATOR_ROSTER_OVERRIDES: Record<
   string,
-  { portfolio: string; constituency?: string; listFirst?: boolean }
+  {
+    portfolio?: string;
+    constituency?: string;
+    department?: string;
+    listFirst?: boolean;
+  }
 > = {
   "Hon. Michael Owusu Asiedu": {
     portfolio: "Clerk, Science and Innovation",
     constituency: "Computer Science",
+    department: "Computer Science",
     listFirst: true,
+  },
+  "Hon. Reginald Nyarko": {
+    constituency: "5th Years",
+    department: "Optometry",
+  },
+  "Hon. Kofi Ewusi Acquah": {
+    constituency: "6th Years",
+    department: "Optometry",
+  },
+  "Hon. Oppong Palmer-Buckle Charles": {
+    constituency: "2nd Years",
+    department: "Environmental Science",
+  },
+  "Hon. Sam Jerry Joshua": {
+    constituency: "Environmental Science",
+    department: "Environmental Science",
+  },
+  "Hon. Elyon Winnore Ayariga": {
+    constituency: "Optometry",
+    department: "Optometry",
+    portfolio: "Member, Standing Orders",
+  },
+  "Hon. Bright Edem Amlalo": {
+    constituency: "Theoretical & Applied Biology",
+    department: "Theoretical & Applied Biology",
+    portfolio: "Member, Standing Orders",
   },
 };
 
 const SENATOR_CONSTITUENCY_BY_NAME: Record<string, string> = {
   "Hon. Erica Bofah Boateng": "Biological Science",
   "Hon. Duvor Felix": "Media and Publicity",
-  "Hon. Bright Edem Amlalo": "Standing Orders",
-  "Hon. Elyon Winnore Ayariga": "Standing Orders",
   "Hon. Simeona Abena Serwaa Asibey": "Academics",
   "Hon. Woli Richard Kwabena": "Academics",
 };
@@ -455,9 +495,11 @@ function resolveSenatorConstituency(senator: Senator): string {
   return "At-Large";
 }
 
-/** Senators excluding presiding officers of the Senate. */
+/** Senators excluding chair officers (Speaker / Deputy Speaker / Clerks). */
 export function getSenatorsExcludingOfficers(): Senator[] {
-  return GOVERNANCE_SENATORS.filter((senator) => !OFFICER_NAMES.has(senator.name))
+  return GOVERNANCE_SENATORS.filter(
+    (senator) => !OFFICERS_EXCLUDED_FROM_MEMBERS.has(senator.name),
+  )
     .map((senator) => {
       const withPhoto = withSenatorPhoto(senator);
       const override = SENATOR_ROSTER_OVERRIDES[senator.name];
@@ -467,9 +509,10 @@ export function getSenatorsExcludingOfficers(): Senator[] {
       }
       return {
         ...withPhoto,
-        portfolio: override.portfolio,
+        portfolio: override.portfolio ?? withPhoto.portfolio,
         constituency: override.constituency ?? constituency,
-        department: override.constituency ?? constituency,
+        department:
+          override.department ?? override.constituency ?? constituency,
       };
     })
     .sort((a, b) => {

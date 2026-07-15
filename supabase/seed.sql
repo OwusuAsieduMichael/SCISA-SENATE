@@ -1,4 +1,4 @@
--- Run after 001_initial_schema.sql and 002_committee_members.sql
+﻿-- Run after 001_initial_schema.sql and 002_committee_members.sql
 -- Auto-generated from apps/web/src/lib/governance-data.ts
 
 delete from public.committees;
@@ -6,12 +6,12 @@ delete from public.leadership;
 delete from public.senators;
 
 insert into public.leadership (id, name, role, department) values
-  ('l1', 'Rt. Hon. Henry Oduro Ntiamoah', 'Speaker of the Senate', ''),
-  ('l2', 'Hon. Nathaniel Bannor Amponsah', 'Deputy Speaker', ''),
-  ('l3', 'Hon. Eunice Deladem Sosoo', 'Clerk of the Senate', ''),
-  ('l4', 'Hon. Emmanuella Owusu Addo', 'Deputy Clerk of the Senate', ''),
-  ('l5', 'Hon. Bright Edem Amlalo', 'Marshal of the Senate', ''),
-  ('l6', 'Hon. Ayariga Elyon Winnore', 'Protocol Head', '')
+  ('l1', 'Rt. Hon. Henry Oduro Ntiamoah', 'Speaker of the Senate', 'Optometry'),
+  ('l2', 'Hon. Nathaniel Bannor Amponsah', 'Deputy Speaker', 'Actuarial Science'),
+  ('l3', 'Hon. Eunice Deladem Sosoo', 'Clerk of the Senate', 'Biochemistry'),
+  ('l4', 'Hon. Emmanuella Owusu Addo', 'Deputy Clerk of the Senate', 'Optometry'),
+  ('l5', 'Hon. Bright Edem Amlalo', 'Marshal of the Senate', 'Theoretical & Applied Biology'),
+  ('l6', 'Hon. Elyon Winnore Ayariga', 'Protocol Head', 'Optometry')
 on conflict (id) do update set
   name = excluded.name,
   role = excluded.role,
@@ -38,15 +38,15 @@ insert into public.senators (id, name, department, portfolio, term, committees) 
   ('sen-abraham-appiah', 'Hon. Abraham Appiah', '', 'Vice Chairperson, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
   ('sen-benedicta-akosua-gyebuah-cobbina', 'Hon. Benedicta Akosua Gyebuah Cobbina', '', 'Clerk to the Committee, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Budget and Finance','Constitution, Legal, and Senate Affairs']),
   ('sen-bernice-forson', 'Hon. Bernice Forson', '', 'Clerk to the Committee, Academics', '2025 to 2026', array['Academics']),
-  ('sen-bright-edem-amlalo', 'Hon. Bright Edem Amlalo', '', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
+  ('sen-bright-edem-amlalo', 'Hon. Bright Edem Amlalo', 'Theoretical & Applied Biology', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
   ('sen-cecilia-kponkpori-jinche', 'Hon. Cecilia Kponkpori Jinche', '', 'Chairperson, Welfare and Health', '2025 to 2026', array['Welfare and Health']),
   ('sen-derrick-appiah', 'Hon. Derrick Appiah', '', 'Vice Chairperson, Budget and Finance', '2025 to 2026', array['Budget and Finance','Standing Orders']),
   ('sen-dorian-esi-fynn', 'Hon. Dorian Esi Fynn', '', 'Member, Appointment', '2025 to 2026', array['Appointment']),
   ('sen-duvor-felix', 'Hon. Duvor Felix', '', 'Chairperson, Media and Publicity', '2025 to 2026', array['Media and Publicity']),
-  ('sen-elyon-winnore-ayariga', 'Hon. Elyon Winnore Ayariga', '', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
-  ('sen-emmanuella-owusu-addo', 'Hon. Emmanuella Owusu Addo', '', 'Deputy Clerk, Business', '2025 to 2026', array['Business','Standing Orders']),
+  ('sen-elyon-winnore-ayariga', 'Hon. Elyon Winnore Ayariga', 'Optometry', 'Member, Standing Orders', '2025 to 2026', array['Standing Orders']),
+  ('sen-emmanuella-owusu-addo', 'Hon. Emmanuella Owusu Addo', 'Optometry', 'Deputy Clerk, Business', '2025 to 2026', array['Business','Standing Orders']),
   ('sen-erica-bofah-boateng', 'Hon. Erica Bofah Boateng', '', 'Vice Chairperson, Welfare and Health', '2025 to 2026', array['Welfare and Health']),
-  ('sen-eunice-deladem-sosoo', 'Hon. Eunice Deladem Sosoo', '', 'Clerk, Business', '2025 to 2026', array['Business','Privileges','Standing Orders']),
+  ('sen-eunice-deladem-sosoo', 'Hon. Eunice Deladem Sosoo', 'Biochemistry', 'Clerk, Business', '2025 to 2026', array['Business','Privileges','Standing Orders']),
   ('sen-evans-kyeremanteng', 'Hon. Evans Kyeremanteng', '', 'Vice Chairperson, Academics', '2025 to 2026', array['Academics','Business','Standing Orders']),
   ('sen-ezekiel-kocraft', 'Hon. Ezekiel Kocraft', '', 'Vice Chairperson, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs']),
   ('sen-genevieve-owusuwaa-karikari', 'Hon. Genevieve Owusuwaa Karikari', '', 'Clerk to the Committee, Appointment', '2025 to 2026', array['Appointment','Budget and Finance','Business']),
@@ -56,20 +56,20 @@ insert into public.senators (id, name, department, portfolio, term, committees) 
   ('sen-jeffrey-owusu-acheaw', 'Hon. Jeffrey Owusu Acheaw', '', 'Chairperson, Appointment', '2025 to 2026', array['Appointment','Business','Privileges']),
   ('sen-jevillin-gyedu-owusuaa', 'Hon. Jevillin Gyedu Owusuaa', '', 'Clerk to the Committee, Media and Publicity', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
   ('sen-kindly-osei-bediako', 'Hon. Kindly Osei Bediako', '', 'Clerk to the Committee, Welfare and Health', '2025 to 2026', array['Budget and Finance','Welfare and Health']),
-  ('sen-kofi-ewusi-acquah', 'Hon. Kofi Ewusi Acquah', '', 'Member, Welfare and Health', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
+  ('sen-kofi-ewusi-acquah', 'Hon. Kofi Ewusi Acquah', 'Optometry', 'Member, Welfare and Health', '2025 to 2026', array['Media and Publicity','Welfare and Health']),
   ('sen-michael-owusu-asiedu', 'Hon. Michael Owusu Asiedu', '', 'Clerk to the Committee, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
   ('sen-nana-kwame-appiah-owusu', 'Hon. Nana Kwame Appiah Owusu', '', 'Chairperson, Budget and Finance', '2025 to 2026', array['Budget and Finance','Media and Publicity']),
-  ('sen-nathaniel-bannor-amponsah', 'Hon. Nathaniel Bannor Amponsah', '', 'Chairperson, Privileges', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs','Privileges','Standing Orders']),
+  ('sen-nathaniel-bannor-amponsah', 'Hon. Nathaniel Bannor Amponsah', 'Actuarial Science', 'Chairperson, Privileges', '2025 to 2026', array['Business','Constitution, Legal, and Senate Affairs','Privileges','Standing Orders']),
   ('sen-ohene-blessing-yeboah', 'Hon. Ohene Blessing Yeboah', '', 'Ranking Member, Constitution, Legal, and Senate Affairs', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Science and Innovation']),
-  ('sen-oppong-palmer-buckle-charles', 'Hon. Oppong Palmer-Buckle Charles', '', 'Faculty of Biosciences Caucus Head, Business', '2025 to 2026', array['Appointment','Business','Standing Orders']),
+  ('sen-oppong-palmer-buckle-charles', 'Hon. Oppong Palmer-Buckle Charles', 'Environmental Science', 'Faculty of Biosciences Caucus Head, Business', '2025 to 2026', array['Appointment','Business','Standing Orders']),
   ('sen-patience-amevor-mensah', 'Hon. Patience Amevor Mensah', '', 'Member, Privileges', '2025 to 2026', array['Constitution, Legal, and Senate Affairs','Privileges']),
   ('sen-priscilla-esimah-mbeah', 'Hon. Priscilla Esimah Mbeah', '', 'Member, Media and Publicity', '2025 to 2026', array['Media and Publicity','Science and Innovation']),
-  ('sen-reginald-nyarko', 'Hon. Reginald Nyarko', '', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
-  ('sen-sam-jerry-joshua', 'Hon. Sam Jerry Joshua', '', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-reginald-nyarko', 'Hon. Reginald Nyarko', 'Optometry', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
+  ('sen-sam-jerry-joshua', 'Hon. Sam Jerry Joshua', 'Environmental Science', 'Member, Science and Innovation', '2025 to 2026', array['Science and Innovation']),
   ('sen-sawudatu-ibrahim', 'Hon. Sawudatu Ibrahim', '', 'Clerk to the Committee, Budget and Finance', '2025 to 2026', array['Budget and Finance','Welfare and Health']),
   ('sen-simeona-abena-serwaa-asibey', 'Hon. Simeona Abena Serwaa Asibey', '', 'Member, Welfare and Health', '2025 to 2026', array['Academics','Welfare and Health']),
   ('sen-woli-richard-kwabena', 'Hon. Woli Richard Kwabena', '', 'Member, Media and Publicity', '2025 to 2026', array['Academics','Media and Publicity']),
-  ('sen-henry-oduro-ntiamoah', 'Rt. Hon. Henry Oduro Ntiamoah', '', 'Speaker (Chairperson), Business', '2025 to 2026', array['Business','Standing Orders'])
+  ('sen-henry-oduro-ntiamoah', 'Rt. Hon. Henry Oduro Ntiamoah', 'Optometry', 'Speaker (Chairperson), Business', '2025 to 2026', array['Business','Standing Orders'])
 on conflict (id) do update set
   name = excluded.name,
   department = excluded.department,
