@@ -43,9 +43,9 @@ export function SiteHeader() {
   }, [open, closeMenu]);
 
   return (
-    <header className="sticky top-0 z-[110] border-b border-white/10 bg-primary text-primary-foreground shadow-md">
+    <header className="sticky top-0 z-[110] overflow-visible border-b border-white/10 bg-primary text-primary-foreground shadow-md">
       <div className="gold-accent-line w-full" />
-      <div className="relative mx-auto flex h-14 max-w-7xl items-center gap-2 px-3 sm:h-16 sm:gap-3 sm:px-6 lg:gap-3 lg:px-8">
+      <div className="relative mx-auto flex h-14 max-w-7xl items-center gap-2 overflow-visible px-3 sm:h-16 sm:gap-3 sm:px-6 lg:gap-3 lg:px-8">
         <Link
           href="/"
           className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
@@ -67,9 +67,9 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        {/* Desktop: single linear row, no wrapping */}
+        {/* Desktop: single linear row; overflow visible so dropdown menus are not clipped */}
         <nav
-          className="ml-auto hidden min-w-0 flex-1 items-center justify-end gap-0.5 overflow-x-auto lg:flex lg:flex-nowrap xl:gap-1"
+          className="ml-auto hidden min-w-0 flex-1 items-center justify-end gap-0.5 overflow-visible lg:flex lg:flex-nowrap xl:gap-1"
           aria-label="Main"
         >
           {mainNav.map((item) =>
@@ -78,6 +78,7 @@ export function SiteHeader() {
                 key={item.label}
                 item={item}
                 hubLinkLabel={navDropdownHubLabel(item)}
+                align={item.label === "Constitution" ? "end" : "start"}
               />
             ) : (
               <Link key={item.href} href={item.href} className={navLinkClass}>
